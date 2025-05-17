@@ -1,0 +1,112 @@
+@keyframes gentle-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 300px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.upperButton,
+.bottomButton {
+  width: 100%;
+  height: 3.5rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  color: white;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+  position: relative;
+}
+
+.upperButton {
+  background-color: #87CEEB;  /* 밝은 하늘색 */
+}
+
+.bottomButton {
+  background-color: #7CB9E8;  /* 조금 더 진한 하늘색 */
+}
+
+.upperButton:hover {
+  background-color: #78B9D4;  /* 호버 시 약간 진해짐 */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(135, 206, 235, 0.3);
+}
+
+.bottomButton:hover {
+  background-color: #6EA8D4;  /* 호버 시 약간 진해짐 */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(124, 185, 232, 0.3);
+}
+
+.upperButton:active,
+.bottomButton:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 아이콘 스타일 */
+.upperButton svg,
+.bottomButton svg {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+}
+
+/* 텍스트 스타일 */
+.upperButton span,
+.bottomButton span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+  margin-top: 1px;
+}
+
+@media (max-width: 768px) {
+  .buttonContainer {
+    padding: 0 20px;
+    margin: 1.5rem auto;
+  }
+
+  .upperButton,
+  .bottomButton {
+    height: 3rem;
+    font-size: 1rem;
+    padding: 0 1.2rem;
+  }
+
+  .upperButton svg,
+  .bottomButton svg {
+    font-size: 1.1rem;
+  }
+}

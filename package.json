@@ -1,0 +1,43 @@
+{
+  "name": "mbti-contents-platform",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node sitemap-generator.js",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@prerenderer/renderer-puppeteer": "^1.2.4",
+    "@prerenderer/rollup-plugin": "^0.3.12",
+    "@uidotdev/usehooks": "^2.4.1",
+    "antd": "^5.24.6",
+    "puppeteer": "^24.8.1",
+    "react": "^19.0.0",
+    "react-circle-flags": "^0.0.23",
+    "react-dom": "^19.0.0",
+    "react-ga4": "^2.1.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^5.5.0",
+    "react-lottie": "^1.2.10",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.2.0",
+    "react-share": "^5.2.2",
+    "styled-components": "^6.1.18"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.19.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.18",
+    "globals": "^15.14.0",
+    "sitemap": "^8.0.0",
+    "vite": "^6.1.0"
+  }
+}
