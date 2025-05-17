@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { SitemapStream, streamToPromise } from "sitemap";
-import { fileURLToPath } from "url"; // ⛔ 빠짐!
+import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -75,13 +75,7 @@ async function generateSitemap() {
     });
   }
   sitemapStream.end();
-/*
-  const sitemap = await streamToPromise(sitemapStream);
-  const __dirname = path.dirname(new URL(import.meta.url).pathname);
-  const outputPath = path.join(__dirname, "dist", "sitemap.xml");
-  fs.writeFileSync(outputPath, sitemap.toString());
-  console.log("sitemap.xml generated!");
-  */
+
   const sitemap = await streamToPromise(sitemapStream);
 
   // ✅ 경로 생성
