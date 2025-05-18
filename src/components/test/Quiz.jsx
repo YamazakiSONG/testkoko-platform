@@ -33,18 +33,15 @@ function Quiz({setMode, questions, scores, setScores, currentTest}) {
     }
   }, [questionNum, questions.length, setMode])
 
+  const progressPercent = Math.floor((questionNum / questions.length) * 100);
+
   return (
     <div className={styles.quizContainer}>
       <h3 className={styles.questionText}>
-        {questions[questionNum]?.question.split('\n').map((line, index) => (
-          <React.Fragment key={index}>
-            {line}
-            <br />
-          </React.Fragment>
-        ))}
+        {questions[questionNum]?.question}
       </h3>
       
-      <div>
+      <div style={{ width: '100%' }}>
         {questions[questionNum]?.answers && 
           arrayShuffler(questions[questionNum].answers).map((option) => (
             <button
@@ -52,26 +49,27 @@ function Quiz({setMode, questions, scores, setScores, currentTest}) {
               onClick={() => onOptionClick(option)}
               key={option.content}
             >
-              <span>
-                {option.content.split('\n').map((line, index) => (
-                  <React.Fragment key={index}>
-                    {line}
-                    <br />
-                  </React.Fragment>
-                ))}
-              </span>
+              <span>{option.content}</span>
             </button>
           ))
         }
       </div>
 
-      <Progress 
-        percent={(questionNum / questions.length) * 100} 
-        showInfo={false}
-      />
-      <h4>
-        {questionNum} / {questions.length}
-      </h4>
+      <div className={styles.progressContainer}>
+        <Progress 
+          percent={progressPercent}
+          showInfo={false}
+          strokeColor={{
+            '0%': '#87CEEB',
+            '100%': '#1E90FF',
+          }}
+          trailColor="#f0f0f0"
+          strokeWidth={8}
+        />
+        <div className={styles.progressText}>
+          {questionNum + 1} / {questions.length}
+        </div>
+      </div>
     </div>
   )
 }
