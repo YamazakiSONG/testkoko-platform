@@ -63,6 +63,25 @@ export default defineConfig({
         "/attackOnTitanMBTIJp/result/1qi2wn3et4rp", //INTP
         "/attackOnTitanMBTIJp/result/1qi2wn3ef4rj", //INFJ
         "/attackOnTitanMBTIJp/result/1qi2wn3ef4rp", //INFP
+        "/areYouT",
+        "/areYouTEng",
+        "/areYouTJp",
+        "/areYouT/result/qsdcred",
+        "/areYouT/result/asdascr",
+        "/areYouT/result/ascxrcd",
+        "/areYouT/result/ascxdda",
+        "/areYouTEng/result/qsdcred",
+        "/areYouTEng/result/asdascr",
+        "/areYouTEng/result/ascxrcd",
+        "/areYouTEng/result/ascxdda",
+        "/areYouTJp/result/qsdcred",
+        "/areYouTJp/result/asdascr",
+        "/areYouTJp/result/ascxrcd",
+        "/areYouTJp/result/ascxdda",
+        "/oldMan",
+        "/oldMan/result/cjdbfgk",
+        "/oldMan/result/vndsjfo",
+        "/oldMan/result/mndsfkn",
       ],
       renderer: PuppeteerRenderer,
       server: {

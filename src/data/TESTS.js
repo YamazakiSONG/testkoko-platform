@@ -5,7 +5,7 @@ export const TESTS = [
       mainTitle: "진격의 거인 MBTI 테스트",
       subTitle: "진격의 거인 세계관 기반 MBTI 테스트",
       mainUrl: "attackOnTitanMBTI",
-      scoreType: "MBTI",
+      testType: "MBTI",
       mainImage: "https://images.testkoko.com/intro/attack_of_titan_mbti/titan_intro_ko.avif",
       thumbImage: "https://images.testkoko.com/thumbnail/attack_of_titan_mbti/titan_main_thumb_ko.avif",
       lang: "Kor",
@@ -290,7 +290,7 @@ export const TESTS = [
       mainTitle: "Attack on Titan MBTI Test",
       subTitle: "MBTI Test Based on the Attack on Titan Universe",
       mainUrl: "attackOnTitanMBTIEng",
-      scoreType: "MBTI",
+      testType: "MBTI",
       mainImage:
         "https://images.testkoko.com/intro/attack_of_titan_mbti/titan_intro_eng.avif",
       thumbImage:
@@ -340,7 +340,7 @@ export const TESTS = [
         },
         {
           type: "I",
-          content: "If I try to save them, I might die too. As cruel as it sounds, if they’re not someone close to me,\nI leave them behind."
+          content: "If I try to save them, I might die too. As cruel as it sounds, if they're not someone close to me,\nI leave them behind."
         }
       ]
     },
@@ -350,7 +350,7 @@ export const TESTS = [
       answers: [
         {
           type: "S",
-          content: "You’re overwhelmed by the shock of realizing that the terrifying \nTitans were actually that close\nto you all along."
+          content: "You're overwhelmed by the shock of realizing that the terrifying \nTitans were actually that close\nto you all along."
         },
         {
           type: "N",
@@ -368,7 +368,7 @@ export const TESTS = [
         },
         {
           type: "N",
-          content: "You start to wonder if finding joy in killing means you’ve lost sight of the true purpose of this battle."
+          content: "You start to wonder if finding joy in killing means you've lost sight of the true purpose of this battle."
         }
       ]
     },
@@ -388,7 +388,7 @@ export const TESTS = [
     },
     {
       which: "TF",
-      question: "During the assault on the Marleyan coast, you’re in the middle of a mission when civilian casualties become unavoidable.\nWhat will you do?",
+      question: "During the assault on the Marleyan coast, you're in the middle of a mission when civilian casualties become unavoidable.\nWhat will you do?",
       answers: [
         {
           type: "T",
@@ -434,7 +434,7 @@ export const TESTS = [
       answers: [
         {
           type: "J",
-          content: "They may have been a comrade once, but now they’re a Titan. \nI kill them immediately."
+          content: "They may have been a comrade once, but now they're a Titan. \nI kill them immediately."
         },
         {
           type: "P",
@@ -448,7 +448,7 @@ export const TESTS = [
       answers: [
         {
           type: "J",
-          content: "I choose Commander Erwin, whose strategic value is vital for humanity’s future."
+          content: "I choose Commander Erwin, whose strategic value is vital for humanity's future."
         },
         {
           type: "P",
@@ -576,7 +576,7 @@ export const TESTS = [
       mainTitle: "進撃のMBTIテスト",
       subTitle: "進撃の巨人の世界観に基づくMBTIテスト",
       mainUrl: "attackOnTitanMBTIJp",
-      scoreType: "MBTI",
+      testType: "MBTI",
       mainImage:
         "https://images.testkoko.com/intro/attack_of_titan_mbti/titan_intro_jp.avif",
       thumbImage:
@@ -856,32 +856,20 @@ export const TESTS = [
       },
     ],
   },
-  //「너 T야?
+  // areYouT
   {
-    /** 
-📊 결과 해석
-      0~8점 : 🧃 감성러 – “난 사람이다. 기계 아님. 눈물도 난다.”
-
-      9~16점 : 💼 눈치형 이성인 – “논리도 감정도 챙기느라 과부하”
-
-      17~21점 : 🧠 팩트 우선 인간 – “친구보다 엑셀이 편함”
-
-      22~24점 : 🧊 냉혈한 로직봇 – “감정은 통계로 치환되는 오류입니다”
-     */
     info: {
       mainTitle: "너 T야?",
       subTitle: "MBTI테스트 - T 성향 측정기. 나의 T 성향은 어느정도일까?",
       mainUrl: "areYouT",
-      scoreType: "MBTI",
-      //mainImage: "https://images.testkoko.com/intro/areYouT/areYouT_intro_ko.avif",
-      //thumbImage: "https://images.testkoko.com/thumbnail/areYouT/areYouT_main_thumb_ko.avif",
-      mainImage: "https://images.testkoko.com/intro/attack_of_titan_mbti/titan_intro_ko.avif",
-      thumbImage: "https://images.testkoko.com/thumbnail/attack_of_titan_mbti/titan_main_thumb_ko.avif",
+      testType: "T_PERSONALITY",
+      mainImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
+      thumbImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
       lang: "Kor",
       category: "characteristic",
       locale: "ko_KR",
       creator: "테스트코코",
-      keywords: "MBTI 테스트,심리테스트,테스트코코,ESTJ,ESTP,ESFJ,ESFP,ENTJ,ENTP,ENFJ,ENFP,ISTJ,ISTP,ISFJ,ISFP,INTJ,INTP,INFJ,INFP"
+      keywords: "MBTI 테스트,T/F 성향 측정,심리테스트,테스트코코,ESTJ,ESTP,ESFJ,ESFP,ENTJ,ENTP,ENFJ,ENFP,ISTJ,ISTP,ISFJ,ISFP,INTJ,INTP,INFJ,INFP"
     },
     questions: [
       {
@@ -894,7 +882,7 @@ export const TESTS = [
           },
           {
             score: 1,
-            content: "슬프겠지만 우선 감정은 나중에 처리하고, 일단 1점이 어디서 틀렸는지 분석부터 하자."
+            content: "슬프겠지만 우선 감정은 나중에 처리하고, 일단 어디서 1점이 틀렸는지 분석부터 하자."
           },
           {
             score: 2,
@@ -984,7 +972,7 @@ export const TESTS = [
           },
           {
             score: 1,
-            content: "망한 원인을 분석해봤어? 인출보다 입력에 치중했거나, 문제풀이보다 암기에 집중했을 가능성 78%"
+            content: "망한 원인을 분석해 봤어? 내 생각에는 너는 지식을 학습하기 위한 공부가 아닌 보여주기식 공부를 한거 같아."
           },
           {
             score: 2,
@@ -994,7 +982,7 @@ export const TESTS = [
       },
       {
         which: "TF",
-        question: "내일까지 숙제를 해야하는데 지금 너무 졸려... 어떡하지?",
+        question: "내일까지 숙제를 해야 하는데 지금 너무 졸려... 어떡하지?",
         answers: [
           {
             score: 0, 
@@ -1002,7 +990,7 @@ export const TESTS = [
           },
           {
             score: 1,
-            content: "졸린 건 생물학적 오류고, 과제 미완은 시스템 실패야. 뭐가 더 치명적인지 계산해봐."
+            content: "졸린 건 생물학적 오류고 과제 미완은 시스템 실패야. 뭐가 더 치명적인지 계산해봐."
           },    
           {
             score: 2,
@@ -1042,7 +1030,7 @@ export const TESTS = [
           },
           {
             score: 2,
-            content: "'안 한 것 같아'는 주관적 판단이고, 실질적 투입 시간은 하루 평균 5.3시간이었어. 결론: 니 착각."
+            content: "'안 한 것 같아'는 주관적 판단이고, 실질적 투입 시간은 하루 평균 15시간이었어. 함부로 판단하지마"
           }
         ]
       },
@@ -1064,29 +1052,39 @@ export const TESTS = [
           }
         ]
       },
-    ]
+    ],
+    results: [
+      {
+        type: "T1", // 1단계
+        query: "qsdcred",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv1_ko.avif",
+      },
+      {
+        type: "T2", // 2단계
+        query: "asdascr",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv2_ko.avif",
+      },
+      {
+        type: "T3", // 3단계
+        query: "ascxrcd",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv3_ko.avif",
+      },
+      {
+        type: "T4", //4단계
+        query: "ascxdda",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv4_ko.avif",
+      }
+    ],
   },
-   //「너 T야?
+   // areYouTEng
    {
-    /** 
-📊 결과 해석
-      0~8점 : 🧃 감성러 – “난 사람이다. 기계 아님. 눈물도 난다.”
-
-      9~16점 : 💼 눈치형 이성인 – “논리도 감정도 챙기느라 과부하”
-
-      17~21점 : 🧠 팩트 우선 인간 – “친구보다 엑셀이 편함”
-
-      22~24점 : 🧊 냉혈한 로직봇 – “감정은 통계로 치환되는 오류입니다”
-     */
     info: {
       mainTitle: "너 T야?",
       subTitle: "MBTI테스트 - T 성향 측정기. 나의 T 성향은 어느정도일까?",
-      mainUrl: "areYouT",
-      scoreType: "MBTI",
-      //mainImage: "https://images.testkoko.com/intro/areYouT/areYouT_intro_ko.avif",
-      //thumbImage: "https://images.testkoko.com/thumbnail/areYouT/areYouT_main_thumb_ko.avif",
-      mainImage: "https://images.testkoko.com/intro/attack_of_titan_mbti/titan_intro_ko.avif",
-      thumbImage: "https://images.testkoko.com/thumbnail/attack_of_titan_mbti/titan_main_thumb_ko.avif",
+      mainUrl: "areYouTEng",
+      testType: "T_PERSONALITY",
+      mainImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
+      thumbImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
       lang: "Eng",
       category: "characteristic",
       locale: "en_US",
@@ -1100,7 +1098,7 @@ export const TESTS = [
         answers: [
           {
             score: 0,
-            content: "You lost by just one point? That’s the whole universe telling you, ‘Take a break this time.’ So don’t be too sad."
+            content: "You lost by just one point? That's the whole universe telling you, 'Take a break this time.' So don't be too sad."
           },
           {
             score: 1,
@@ -1122,7 +1120,7 @@ export const TESTS = [
           },
           {
             score: 1,
-            content: "I respond, `If ‘cheer up’ really worked, the world wouldn’t have depression, would it?`"
+            content: "I respond, `If 'cheer up' really worked, the world wouldn't have depression, would it?`"
           },
           {
             score: 2,
@@ -1172,11 +1170,11 @@ export const TESTS = [
         answers: [
           {
             score: 0, 
-            content: "What? What’s going on all of a sudden?"
+            content: "What? What's going on all of a sudden?"
           },
           {
             score: 1,
-            content: "Changing your hair color won’t boost life efficiency, but I respect the spirit of experimentation."
+            content: "Changing your hair color won't boost life efficiency, but I respect the spirit of experimentation."
           },
           {
             score: 2,
@@ -1194,25 +1192,25 @@ export const TESTS = [
           },
           {
             score: 1,
-            content: "Have you analyzed why you failed? There's a 78% chance you focused more on input than retrieval, or prioritized memorization over problem-solving."
+            content: "Did you analyze the cause of your failure? I think you studied flaunting, not to learn knowledge."
           },
           {
             score: 2,
-            content: "Before we proceed, let’s define 'failure'. What's the numerical threshold here? Be specific."
+            content: "Before we proceed, let's define 'failure'. What's the numerical threshold here? Be specific."
           }
         ]
       },
       {
         which: "TF",
-        question: "I have homework due tomorrow, but I’m so sleepy right now… What should I do?",
+        question: "I have homework due tomorrow, but I'm so sleepy right now… What should I do?",
         answers: [
           {
             score: 0, 
-            content: "If you're going to sleep now, shouldn’t you at least consider the minimum time to reach REM sleep?"
+            content: "If you're going to sleep now, shouldn't you at least consider the minimum time to reach REM sleep?"
           },
           {
             score: 1,
-            content: "Sleepiness is a biological glitch. Incomplete homework is a system failure. Calculate which one’s more critical."
+            content: "Sleepiness is a biological glitch. Incomplete homework is a system failure. Calculate which one's more critical."
           },    
           {
             score: 2,
@@ -1234,7 +1232,7 @@ export const TESTS = [
           },
           {
             score: 2,
-            content: "Emotion? That’s just a temporary chemical reaction in the brain. You’ve basically been emotionally manipulated by Netflix."
+            content: "Emotion? That's just a temporary chemical reaction in the brain. You've basically been emotionally manipulated by Netflix."
           }
         ]
       },
@@ -1244,17 +1242,17 @@ export const TESTS = [
         answers: [
           {
             score: 0,
-            content: "Statistically speaking, you're wrong. I studied six hours a day—I just didn’t show it. Seems like your observation skills need some work."
+            content: "Statistically speaking, you're wrong. I studied six hours a day—I just didn't show it. Seems like your observation skills need some work."
 
 
           },
           {
             score: 1,
-            content: "Efficiency, ever heard of it? We both studied, but while you absorbed 30%, I processed 97%. Please understand—cognitive ability isn’t uniform across individuals."
+            content: "Efficiency, ever heard of it? We both studied, but while you absorbed 30%, I processed 97%. Please understand—cognitive ability isn't uniform across individuals."
           },
           {
             score: 2,
-            content: "'You didn’t seem to study' is your personal perception. My actual input was 5.3 hours daily."
+            content: "'You didn't seem to study' is your personal perception. My actual input was 15 hours daily."
           }
         ]
       },
@@ -1268,7 +1266,7 @@ export const TESTS = [
           },
           {
             score: 1,
-            content: "If you’d invested that money in stocks, you’d be up 12.7% by now. Wealth accumulation beats emotional spending every time."
+            content: "If you'd invested that money in stocks, you'd be up 12.7% by now. Wealth accumulation beats emotional spending every time."
           },
           {
             score: 2,
@@ -1276,30 +1274,40 @@ export const TESTS = [
           }
         ]
       },
-    ]
+    ],
+    results: [
+      {
+        type: "T1", // 1단계
+        query: "qsdcred",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv1_ko.avif",
+      },
+      {
+        type: "T2", // 2단계
+        query: "asdascr",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv2_ko.avif",
+      },
+      {
+        type: "T3", // 3단계
+        query: "ascxrcd",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv3_ko.avif",
+      },
+      {
+        type: "T4", //4단계
+        query: "ascxdda",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv4_ko.avif",
+      }
+    ],
   },
-   //「너 T야?
+   // areYouTJp
    {
-    /** 
-📊 결과 해석
-      0~8점 : 🧃 감성러 – “난 사람이다. 기계 아님. 눈물도 난다.”
-
-      9~16점 : 💼 눈치형 이성인 – “논리도 감정도 챙기느라 과부하”
-
-      17~21점 : 🧠 팩트 우선 인간 – “친구보다 엑셀이 편함”
-
-      22~24점 : 🧊 냉혈한 로직봇 – “감정은 통계로 치환되는 오류입니다”
-     */
     info: {
       mainTitle: "너 T야?",
       subTitle: "MBTI테스트 - T 성향 측정기. 나의 T 성향은 어느정도일까?",
-      mainUrl: "areYouT",
-      scoreType: "MBTI",
-      //mainImage: "https://images.testkoko.com/intro/areYouT/areYouT_intro_ko.avif",
-      //thumbImage: "https://images.testkoko.com/thumbnail/areYouT/areYouT_main_thumb_ko.avif",
-      mainImage: "https://images.testkoko.com/intro/attack_of_titan_mbti/titan_intro_ko.avif",
-      thumbImage: "https://images.testkoko.com/thumbnail/attack_of_titan_mbti/titan_main_thumb_ko.avif",
-      lang: "Jpn",
+      mainUrl: "areYouTJp",
+      testType: "T_PERSONALITY",
+      mainImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
+      thumbImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
+      lang: "Jp",
       category: "characteristic",
       locale: "ja_JP",
       creator: "테스트코코",
@@ -1406,7 +1414,7 @@ export const TESTS = [
           },
           {
             score: 1,
-            content: "失敗の原因、分析してみた？インプットばかりでアウトプットが足りなかったか、問題演習より暗記に偏ってた可能性が78%。"
+            content: "つぶれた原因を分析してみましたか？ 私の考えでは、あなたは知識を学習するための勉強ではなく、見せかけ式の勉強をしたようです。"
           },
           {
             score: 2,
@@ -1486,7 +1494,236 @@ export const TESTS = [
           }
         ]
       },
-    ]
+    ],
+    results: [
+      {
+        type: "T1", // 1단계
+        query: "qsdcred",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv1_ko.avif",
+      },
+      {
+        type: "T2", // 2단계
+        query: "asdascr",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv2_ko.avif",
+      },
+      {
+        type: "T3", // 3단계
+        query: "ascxrcd",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv3_ko.avif",
+      },
+      {
+        type: "T4", //4단계
+        query: "ascxdda",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv4_ko.avif",
+      }
+    ],
+  },
+  {
+    info: {
+      mainTitle: "꼰대 테스트",
+      subTitle: "나는 과연 꼰대일까?",
+      mainUrl: "oldMan",
+      testType: "OLD_MAN",
+      mainImage: "https://images.testkoko.com/T_oldMan/introThumb/oldman_intro_thumb_ko.avif",
+      thumbImage: "https://images.testkoko.com/T_oldMan/mainThumb/oldman_main_thumb_ko.avif", 
+      lang: "Kor",
+      category: "characteristic",
+      locale: "ko_KR",
+      creator: "테스트코코",
+      keywords: "꼰대테스트,꼰대력 측정,직장인 꼰대 테스트"
+    },
+    questions: [
+      {
+        question: "후배가 아침에 연락이 와서 늦을 거 같다고 연락이 온다. 그래서 나에게 지각 안 한 것처럼 보이기 위해 컴퓨터 전원을 켜놔달라고 한다. 이때 나의 반응은?",
+        answers: [
+          {
+            score: 0,
+            content: "ㅋㅋ 그 정도야~ 켜놔줄게. 대신 넌 오늘 커피 사~(장난 반, 협동심 반으로 넘김. 컴퓨터도 켜주고 자리도 정리해 줌)"
+          },
+          {
+            score: 1,
+            content: "하하하 그런 창의적인 부탁도 있구나~ ㅎㅎ 근데 회사는 학교랑 다르지 않냐?(그리고 실제로 전원 안 켜줌)"
+          },
+          {
+            score: 2,
+            content: "그럼 출근체크도 내가 대신해 줄 테니 나한테 지문도 남겨줄래? 컴퓨터 켜주고 네 자리 온 것처럼 엑셀도 열까?라고 비꼬면서 화를 냄.(이후 단톡방에 “지각은 본인이 책임집시다^^” 글 올림)"
+          }
+        ]
+      },
+      {
+        question: "후배가 쉬는 시간에 혼자 카페 가서 자기 커피만 사 온다. 이때 나의 반응은?",
+        answers: [
+          {
+            score: 0,
+            content: "요즘은 다 개인주의니깐 그럴 수도 있지~(그리고 다음엔 같이 커피 사러 가자고 먼저 말해줌)"
+          },
+          {
+            score: 1,
+            content: "ㅎㅎ 오~ 혼자만 커피라... 나도 입이 있었던 것 같은데~(커피의 시럽이 없는 것 같은 쓴 표정 지으며...)"
+          },
+          {
+            score: 2,
+            content: "요즘은 혼자 먹고 혼자 사는 세상이냐? 커피 한 잔에 동료애가 있는 거야. 이게 문화야.(그리고 그날 팀 단톡방에 ‘소통과 배려에 대한 좋은 글’ 공유함)"
+          }
+        ]     
+      },
+      {
+        question: "카페에 가서 팀장인 내가 오늘 커피를 사기로 한다. 이때 후배 놈이 제일 싼 아이스 아메리카노 대신 8000천 원짜리 바닐라 크림 프라푸치노를 주문한다. 이때 나의 반응은?",
+        answers: [
+          {
+            score: 0,
+            content: "와우~ 역시 요즘 MZ는 남다르다! 다음엔 나도 저거 마셔봐야지~😊"
+          },
+          {
+            score: 1,
+            content: "와~ 나는 2000원짜리 아아 마시는데~ 후배님은 간이 크시네? 그냥 아이스 아메리카노 주문해서 간 좀 줄이시지~?"
+          },
+          {
+            score: 2,
+            content: "야 이 자식아. 프라푸치노면 회식 메뉴야. 너는 그냥 회사 정수기에서 물이나 마셔."
+          }
+        ]
+      },
+      {
+        question: "직장 동료들이랑 점심 식사를 하러 갔는데 후배가 수저 세팅을 하지 않고 가만히 있는다. 이때 나의 반응은?",
+        answers: [
+          {
+            score: 0,
+            content: "어라? 수저 없네~ 내가 가져올게요~ 요즘 셀프잖아요ㅎㅎ(그리고 진심으로 아무렇지도 않음)"
+          },  
+          {
+            score: 1,
+            content: "요즘은 수저도 각자 챙기는 시대인가~? 나 때는 서로 챙겨주는 맛이 있었는데 말이지~ ^^(웃지만 젓가락 끝이 살짝 떨림)"
+          },
+          {
+            score: 2,
+            content: "야.뭐 하냐? 회사 생활에 기본이 안 됐네.(그리고 후배가 수저 놓고도 ‘넌 탈락’ 표시 눈빛 쏨)"
+          }
+        ]
+      },
+      {
+        question: "회의 시간에 팀장인 나는 종이에 메모하는데 후배 놈이 아이패드에 메모를 한다. 이때 속 마음은?",
+        answers: [
+          {
+            score: 0, 
+            content: "오~ 아이패드 좋네. 필기 잘 돼요? 나도 하나 살까?(진심으로 관심 있고, 손글씨보다 깔끔한 걸 부러워함)"
+          },
+          {
+            score: 1,
+            content: "아이패드 좋지. 근데 말이야… 종이에 써야 기억에 남는 법이야~(자신의 메모지는 아무것도 적혀 있지 않음)"
+          },
+          {
+            score: 2,
+            content: "회의는 집중하는 시간이지 그림 그리는 시간 아니거든? 그거로 뭐 하는지 난 몰라서 불안하더라~(그리고 본인 메모엔 ‘점심 김치찌개’ 적혀 있음)"
+          }
+        ]
+      },
+      {
+        question: "회의 중 팀장인 나의 의견에 새파란 신입이 '그건 좀 아닌 것 같은데요?'라고 말한다면?",
+        answers: [
+          {
+            score: 0, 
+            content: "오~ 반박도 가능하지! 그럼 어떻게 하면 더 좋을까? 말해봐!(진심으로 피드백 수용에 열린 인간 스펀지)"
+          },
+          {
+            score: 1,
+            content: "음~ 그래? 그럼 그 생각으로 다음 주 기획안은 네가 짜보자!(입꼬리는 올라가지만 눈썹은 안 내려감)"
+          },
+          {
+            score: 2,
+            content: "네가 입사한 지 며칠 됐지? 이건 경험이 필요한 문제야. 그러니깐 너는 조용히 있어"
+          }
+        ]
+      },
+      {
+        question: "신입이 점심 메뉴로 마라탕을 예약해놨다면 당신의 반응은?",
+        answers: [
+          {
+            score: 0, 
+            content: "오~ 마라탕 좋지! 혀 마비돼도 행복하더라고요~(그리고 후식으로 탕후루 먹는다.)"
+          },
+          {
+            score: 1,
+            content: "마라탕…? 음~ 나도 먹긴 먹는데~ 다음엔 국밥도 고려해 보자~ ㅎㅎ(하지만 마라 국물은 거의 안 건드림)"
+          },    
+          {
+            score: 2,
+            content: "마라탕은 중국 애들이 먹는 거 아냐? 나 때는 김치찌개에 계란찜이 국룰이었지."
+          }
+        ]
+      },  
+      {
+        question: "후배가 에어팟을 끼고 일하고 있는 걸 목격했다. 이때 나의 속 마음은?",
+        answers: [
+          {
+            score: 0,
+            content: "집중 잘 되나 보네~ 나도 예전엔 이어폰 끼고 노래 들으며 일했었지~(그리고 슬쩍 플레이리스트 공유 요청함)"
+          },
+          {
+            score: 1,
+            content: "오… 이어폰 꼈네?라고 말하면서 약간의 마음속 불편함을 느낌. 하지만 말은 안 하고, 퇴근 후 갑자기 ‘소통의 중요성’을 주제로 톡 보냄"
+          },
+          {
+            score: 2,
+            content: "바로 회의실로 소환 후 호통친다(이후 그 후배의 인사평가는 음소거됨)"
+          }
+        ]
+      },
+      {
+        question: "회식자리에서 후배가 상급자인 내가 주는 술을 하나도 안 먹고 제로 음료만 마시고 있다. 이때 속 마음은?",
+        answers: [
+          {
+            score: 0,
+            content: "오~ 제로 음료 좋죠! 요즘은 알쓰가 대세라던데요? 건강 챙기는 거 멋져요~(그리고 본인도 콜라로 건배함)"
+          },
+          {
+            score: 1,
+            content: "오~ 요즘은 술 안 먹는 게 트렌드구나~ 나도 한때는 그랬지...(하지만 옆 사람한테만 따르며 슬쩍 시선은 그 후배에게 감)"
+          },
+          {
+            score: 2,
+            content: "아~ 그래그래. 요즘 애들은 술이 무섭지? 근데 내가 주는 한 잔은 ‘마음’이야. 거절은 곧 ‘퇴사’라는 뜻이지~ㅎㅎ"
+          }
+        ]
+      },
+      { 
+        question: "퇴근 시간 2분전 짐을 싸는 후배를 목격한다. 이때 나의 반응은?",
+        answers: [
+          {
+            score: 0,
+            content: "와 부럽다~ 나도 저 때는 그렇게 칼퇴했었지ㅋㅋ(오히려 박수 쳐주고, 짐 싸는 속도에 감탄함)"
+          },
+          {
+            score: 1,
+            content: "음~ 시계는 2분 느리게 봐야 진짜 프로인데…ㅎㅎ(웃지만 한쪽 눈썹이 위로 올라가 있음)"
+          },
+          {
+            score: 2,
+            content: "야, 퇴근 2분 전은 짐을 정리하는 시간이 아니라 오늘한 업무를 정리하는 또 다른 일의 시작 시간이야. 다시 짐 풀어!"
+          }
+        ]
+      },
+    ],
+    results: [
+      {
+        type: "O1", // 1단계
+        query: "cjdbfgk",
+        img_src:
+          "https://images.testkoko.com/T_oldMan/result/oldman_result_lv1_ko.avif",
+      },
+      {
+        type: "O2", // 2단계
+        query: "vndsjfo",
+        img_src:
+          "https://images.testkoko.com/T_oldMan/result/oldman_result_lv2_ko.avif",
+      },
+      {
+        type: "O3", // 3단계
+        query: "mndsfkn",
+        img_src:
+          "https://images.testkoko.com/T_oldMan/result/oldman_result_lv3_ko.avif",
+      },
+    ],
   }
 ];
 

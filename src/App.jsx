@@ -9,8 +9,8 @@ import ReactGA4 from 'react-ga4';
 import ScrollToTop from './utils/ScrollToTop';
 import { createGlobalStyle } from 'styled-components';
 
-//export const base_url = "https://testkoko.com";
-export const base_url = "http://localhost:5173";
+export const base_url = "https://testkoko.com";
+//export const base_url = "http://localhost:5173";
 
 const GlobalStyle = createGlobalStyle`
   html, body {

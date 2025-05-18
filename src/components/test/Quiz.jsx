@@ -4,12 +4,26 @@ import styles from "./quiz.module.css";
 import { Progress } from 'antd';
 import { arrayShuffler } from '../../tools/tools';
 
-function Quiz({setMode, questions, mbtiScore, setMbtiScore}) {
+function Quiz({setMode, questions, scores, setScores, currentTest}) {
   const [questionNum, setQuestionNum] = useState(0);
   
-  const onOptionClick = (type) => {
-    mbtiScore[type] += 1;
-    setMbtiScore({...mbtiScore});
+  const onOptionClick = (answer) => {
+    const testType = currentTest?.info?.testType;
+    
+    if (testType === 'MBTI') {
+      // MBTI 테스트의 경우
+      setScores({
+        ...scores,
+        [answer.type]: (scores[answer.type] || 0) + 1
+      });
+    } else if (testType === 'T_PERSONALITY' || testType === 'OLD_MAN') {
+      // 점수 합산 방식 테스트의 경우
+      setScores({
+        ...scores,
+        total: (scores.total || 0) + answer.score
+      });
+    }
+    
     setQuestionNum((prev) => prev + 1);
   }
   
@@ -35,7 +49,7 @@ function Quiz({setMode, questions, mbtiScore, setMbtiScore}) {
           arrayShuffler(questions[questionNum].answers).map((option) => (
             <button
               className={styles.optionButton}
-              onClick={() => onOptionClick(option.type)}
+              onClick={() => onOptionClick(option)}
               key={option.content}
             >
               <span>

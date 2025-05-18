@@ -118,75 +118,62 @@ const ThumbnailItem = styled.div`
 `;
 
 function ThumbnailList(){
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [testList, setTestList] = useState(TESTS);
+    const [searchParams] = useSearchParams();
+    const [testList, setTestList] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         const currentLanguage = searchParams.get("lang") || 'Kor';
         const currentCategory = searchParams.get("cat");
-        if(currentCategory){
-            console.log(1);
-            console.log(TESTS);
-            const filteredTests = TESTS.filter((test) => (
-                test?.info?.lang === currentLanguage && test?.info?.category === currentCategory
-            ))
-            setTestList(filteredTests);
-        } else {
-            console.log(2);
-            console.log(TESTS);
-            const filteredTests = TESTS.filter(
-                (test) => test?.info?.lang === currentLanguage
-            );
-            setTestList(filteredTests);
-        }        
-    },[searchParams])
-
-    console.log('testList',testList);
+        
+        const filteredTests = TESTS.filter((test) => {
+            if (currentCategory) {
+                return test?.info?.lang === currentLanguage && test?.info?.category === currentCategory;
+            }
+            return test?.info?.lang === currentLanguage;
+        });
+        
+        setTestList(filteredTests);
+    }, [searchParams]);
 
     const onBackToTopButtonClick = () => {
         eventSenderGA("BackToTop","BackToTopButton","MainPage");
     }
 
     return(
-    <ThumbnailContainer>
-        {testList ? (
-            testList?.map((test,idx) => (
-                <ThumbnailItem key={test?.info?.mainUrl}>
-                    <Link
-                        to={`${base_url}/${test?.info?.mainUrl}`}
-                        style={{ width: '100%', textDecoration: 'none' }}
-                    >
-                        <ImageContainer>
-                            <img
-                                src={test?.info?.thumbImage} 
-                                alt={test?.info?.mainUrl}
-                                loading="lazy"
-                            />
-                        </ImageContainer>
-                    </Link>
-                    {idx % 2 === 0 && (
-                        <div style={{ width: '100%', margin: '1rem 0' }}>
-                            <CoupangDynamicBanner unit={"introBanner"} />
-                        </div>
-                    )}
-                </ThumbnailItem>
-            )) 
-        ) : (
-            <Skeleton active style={{height: "20rem", width: "100%", margin: "1rem 0"}}/>
-        )}
-        <FloatButton.BackTop 
-            visibilityHeight={400} 
-            onClick={onBackToTopButtonClick}
-            style={{
-                bottom: 24,
-                right: 24,
-                '@media (max-width: 768px)': {
-                    bottom: 16,
-                    right: 16
-                }
-            }}
-        />
-    </ThumbnailContainer>
+        <ThumbnailContainer>
+            {testList.length > 0 ? (
+                testList.map((test) => (
+                    <ThumbnailItem key={test?.info?.mainUrl}>
+                        <Link
+                            to={`${base_url}/${test?.info?.mainUrl}`}
+                            style={{ width: '100%', textDecoration: 'none' }}
+                        >
+                            <ImageContainer>
+                                <img
+                                    src={test?.info?.thumbImage} 
+                                    alt={test?.info?.mainUrl}
+                                    loading="lazy"
+                                />
+                            </ImageContainer>
+                        </Link>
+                    </ThumbnailItem>
+                ))
+            ) : (
+                <Skeleton active style={{height: "20rem", width: "100%", margin: "1rem 0"}}/>
+            )}
+            <FloatButton.BackTop 
+                visibilityHeight={400} 
+                onClick={onBackToTopButtonClick}
+                style={{
+                    bottom: 24,
+                    right: 24,
+                    '@media (max-width: 768px)': {
+                        bottom: 16,
+                        right: 16
+                    }
+                }}
+            />
+        </ThumbnailContainer>
     );
 }
 
