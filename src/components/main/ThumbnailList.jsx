@@ -59,32 +59,68 @@ const ImageContainer = styled.div`
     max-width: 100%;
     padding-top: 75%;
     border-radius: 12px;
-    margin: 0.5rem 0;
+    margin: 0;
   }
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-
-    ${CategoryText} {
-      background: linear-gradient(45deg, #ff4081, #ff79b0);
-      -webkit-background-clip: text;
-      background-clip: text;
-    }
   }
 
   img {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: auto;
     height: auto;
     max-width: 95%;
     max-height: 85%;
     object-fit: contain;
-    object-position: center;
+    object-position: top center;
     transition: all 0.3s ease;
+  }
+`;
+
+const TextContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.8rem 1rem;
+  background: ${props => props.bgColor || 'rgba(0, 0, 0, 0.6)'};
+  color: white;
+  text-align: left;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 0.8rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+`;
+
+const TitleText = styled.h3`
+  font-size: ${props => props.textSize || '1.3rem'};
+  font-weight: 600;
+  color: ${props => props.textColor || 'white'};
+  margin: 0 0 0.2rem 0;
+  
+  @media (max-width: 768px) {
+    font-size: ${props => props.textSize ? `calc(${props.textSize} * 0.9)` : '1.2rem'};
+    margin: 0 0 0.1rem 0;
+  }
+`;
+
+const DescriptionText = styled.p`
+  font-size: ${props => props.textSize || '1.3rem'};
+  color: ${props => props.textColor || 'rgba(255, 255, 255, 0.9)'};
+  margin: 0;
+  line-height: 1.3;
+  
+  @media (max-width: 768px) {
+    font-size: ${props => props.textSize ? `calc(${props.textSize} * 0.9)` : '0.9rem'};
   }
 `;
 
@@ -154,6 +190,20 @@ function ThumbnailList(){
                                     alt={test?.info?.mainUrl}
                                     loading="lazy"
                                 />
+                                <TextContainer bgColor={test?.info?.color}>
+                                    <TitleText 
+                                        textSize={test?.info?.textSize}
+                                        textColor={test?.info?.textColor}
+                                    >
+                                        {test?.info?.mainTitle}
+                                    </TitleText>
+                                    <DescriptionText 
+                                        textSize={test?.info?.descriptionTextSize}
+                                        textColor={test?.info?.descriptionTextColor}
+                                    >
+                                        {test?.info?.subTitle}
+                                    </DescriptionText>
+                                </TextContainer>
                             </ImageContainer>
                         </Link>
                     </ThumbnailItem>
