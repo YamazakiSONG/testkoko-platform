@@ -21,6 +21,28 @@ function ResultThumbnailList({ testParam, lang }) {
     [testParam, searchParams]
   );
 
+  // 스켈레톤 스타일 메모이제이션
+  const skeletonStyle = useMemo(() => ({
+    height: "20rem", 
+    width: "100%", 
+    margin: "1rem 0"
+  }), []);
+
+  // 결과가 없는 경우의 메시지를 언어별로 메모이제이션 (조건부 렌더링 이전으로 이동)
+  const noResultsMessage = useMemo(() => {
+    const messages = {
+      'Kor': '해당 언어의 다른 테스트가 없습니다.',
+      'Eng': 'No other tests available in this language.',
+      'Jp': 'この言語の他のテストはありません。'
+    };
+    return messages[currentLanguage] || messages['Kor'];
+  }, [currentLanguage]);
+
+  // 이벤트 핸들러 메모이제이션
+  const onBackToTopButtonClick = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   useEffect(() => {
     setIsLoading(true);
     
@@ -38,32 +60,10 @@ function ResultThumbnailList({ testParam, lang }) {
     setIsLoading(false);
   }, [currentTestParam, currentLanguage]);
 
-  // 이벤트 핸들러 메모이제이션
-  const onBackToTopButtonClick = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  // 스켈레톤 스타일 메모이제이션
-  const skeletonStyle = useMemo(() => ({
-    height: "20rem", 
-    width: "100%", 
-    margin: "1rem 0"
-  }), []);
-
   // 로딩 중 화면 표시
   if (isLoading) {
     return <Skeleton active style={skeletonStyle} />;
   }
-
-  // 결과가 없는 경우의 메시지를 언어별로 메모이제이션
-  const noResultsMessage = useMemo(() => {
-    const messages = {
-      'Kor': '해당 언어의 다른 테스트가 없습니다.',
-      'Eng': 'No other tests available in this language.',
-      'Jp': 'この言語の他のテストはありません。'
-    };
-    return messages[currentLanguage] || messages['Kor'];
-  }, [currentLanguage]);
 
   return (
     <div className={styles.thumbnailContainer}>

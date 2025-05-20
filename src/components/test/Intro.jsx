@@ -99,23 +99,35 @@ const ImageWrapper = styled.div`
 `;
 
 const IntroImage = styled.img`
-  width: 450px;
-  height: 500px;
+  width: 600px;
+  height: 650px;
   object-fit: contain;
   cursor: pointer;
   display: block;
   border-radius: 12px;
   margin: 0;
   padding: 0;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.02);
+  }
   
   @media (max-width: 768px) {
     width: 100%;
     height: auto;
-    max-width: 450px;
-    max-height: 500px;
-    aspect-ratio: 450/500;
-    border-radius: 0;
-    object-fit: contain;
+    max-width: 400px;
+    max-height: 450px;
+    aspect-ratio: 400/450;
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 480px) {
+    width: 85%;
+    max-width: 430px;
+    max-height: 480px;
+    aspect-ratio: 430/480;
   }
 `;
 
