@@ -56,7 +56,7 @@ function App() {
           <Route path="/:testParam/result/:resultParam" element={<TestResult/>} />
           {/* Blog Page */}
           <Route 
-            path="/blog/:testParam" element={<Blog />}
+            path="/blog/:testParam/:resultParam" element={<Blog />}
           />
           {/* Privacy Page */}
           <Route 

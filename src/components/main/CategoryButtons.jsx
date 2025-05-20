@@ -1,48 +1,50 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, useCallback, memo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import styles from './categoryButtons.module.css';
 
-function CategoryButtons(){
+// 언어별 텍스트 객체는 컴포넌트 외부로 이동
+const foreignTextsObject = {
+    Kor : {
+        all : {
+            text: "전체",
+        },
+        love : {
+            text: "연애",
+        },
+        characteristic: {
+            text: "성격",
+        }
+    },
+    Eng : {
+        all : {
+            text: "All",
+        },
+        love : {
+            text: "Love",
+        },
+        characteristic: {
+            text: "Personality",
+        }
+    },
+    Jp : {
+        all : {
+            text: "すべて",
+        },
+        love : {
+            text: "れんあい",
+        },
+        characteristic: {
+            text: "せいかく",
+        }
+    }
+};
+
+// 메인 컴포넌트 함수
+function CategoryButtonsComponent(){
     const [searchParams] = useSearchParams();
     const [language, setLanguage] = useState('Kor');
     const [selectedCategory, setSelectedCategory] = useState('all');
     const navigate = useNavigate();
-    
-    const foreignTextsObject = {
-        Kor : {
-            all : {
-                text: "전체",
-            },
-            love : {
-                text: "연애",
-            },
-            characteristic: {
-                text: "성격",
-            }
-        },
-        Eng : {
-            all : {
-                text: "All",
-            },
-            love : {
-                text: "Love",
-            },
-            characteristic: {
-                text: "Personality",
-            }
-        },
-        Jp : {
-            all : {
-                text: "すべて",
-            },
-            love : {
-                text: "れんあい",
-            },
-            characteristic: {
-                text: "せいかく",
-            }
-    }
-    };
 
     useEffect(() => {
         const currentLang = searchParams.get('lang') || 'Kor';
@@ -51,7 +53,8 @@ function CategoryButtons(){
         setSelectedCategory(currentCat);
     }, [searchParams]);
 
-    const onCategoryButtonClick = (category) => {
+    // 이벤트 핸들러를 메모이제이션
+    const onCategoryButtonClick = useCallback((category) => {
         if(category === "all"){
             navigate(`/?lang=${language}`);
         } else if(category === 'love' || category === 'characteristic'){
@@ -61,11 +64,12 @@ function CategoryButtons(){
             navigate(`/?lang=${language}`);
         }
         setSelectedCategory(category);
-    };
+    }, [navigate, language]);
 
-    const getButtonClassName = (category) => {
+    // 버튼 클래스명 계산 함수를 메모이제이션
+    const getButtonClassName = useCallback((category) => {
         return `${styles.categoryButton} ${selectedCategory === category ? styles.categoryButtonSelected : ''}`;
-    };
+    }, [selectedCategory]);
 
     return (
         <div className={styles.categoryButtonContainer}>
@@ -90,5 +94,8 @@ function CategoryButtons(){
         </div>
     );
 }
+
+// memo로 감싸서 불필요한 리렌더링 방지
+const CategoryButtons = memo(CategoryButtonsComponent);
 
 export default CategoryButtons;

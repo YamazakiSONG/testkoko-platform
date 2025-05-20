@@ -2,7 +2,6 @@ import IntroButtonGroup from './IntroButtonGroup';
 import KakaoAdfit from '../KakaoAdfit';
 import GoToHomeButton from './GoToHomeButton';
 import { eventSenderGA } from "../../tools/tools"
-import CoupangDynamicBanner from '../CoupangDynamicBanner';
 import styled, { keyframes } from 'styled-components';
 
 const glowAnimation = keyframes`
@@ -48,51 +47,75 @@ const shimmerAnimation = keyframes`
 `;
 
 const IntroContainer = styled.div`
+  width: 100%;
   max-width: 100%;
-  padding: 0 1rem;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
   text-align: center;
-
-  @media (max-width: 768px) {
-    padding: 0 0.5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 `;
 
 const Title = styled.h1`
+  width: 100%;
   margin: 1.5rem 0 0.5rem;
+  padding: 0 1rem;
   word-break: keep-all;
+  box-sizing: border-box;
   
   @media (max-width: 768px) {
     font-size: 1.5rem;
-    padding: 0 1rem;
   }
 `;
 
 const SubTitle = styled.h3`
+  width: 100%;
   margin: 0.5rem 0 1.5rem;
+  padding: 0 1rem;
   word-break: keep-all;
+  box-sizing: border-box;
   
   @media (max-width: 768px) {
     font-size: 1rem;
-    padding: 0 1rem;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 `;
 
 const IntroImage = styled.img`
-  width: 100%;
-  max-width: 768px;
-  height: auto;
-  aspect-ratio: 1.2 / 1;
+  width: 450px;
+  height: 500px;
   object-fit: contain;
   cursor: pointer;
-  margin: 0 auto;
   display: block;
   border-radius: 12px;
+  margin: 0;
+  padding: 0;
   
   @media (max-width: 768px) {
-    width: calc(100% - 1.6rem);
-    margin: 0 auto;
-    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+    max-width: 450px;
+    max-height: 500px;
+    aspect-ratio: 450/500;
+    border-radius: 0;
+    object-fit: contain;
   }
 `;
 
@@ -218,13 +241,13 @@ function Intro({info, setMode}) {
     <IntroContainer>
       <Title>{info?.mainTitle}</Title>
       <SubTitle>{info?.subTitle}</SubTitle>
-      <IntroImage
-        src={info?.mainImage} 
-        alt={info?.mainTitle}
-        onClick={onImageClick}
-      />
-      <KakaoAdfit />
-      <CoupangDynamicBanner unit={"introBanner"}/>
+      <ImageWrapper>
+        <IntroImage
+          src={info?.mainImage} 
+          alt={info?.mainTitle}
+          onClick={onImageClick}
+        />
+      </ImageWrapper>
       <StartButton onClick={onImageClick}>
         {info && foreignTextsObject[info?.lang].startButton}
       </StartButton>

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { HomeOutlined } from "@ant-design/icons";
 import { eventSenderGA } from "../../tools/tools";
 import styled, { keyframes } from 'styled-components';
+import { memo, useCallback, useMemo } from 'react';
 
 const glowAnimation = keyframes`
   0% {
@@ -136,33 +137,44 @@ const StyledButton = styled.button`
   }
 `;
 
-function GoAnotherTestBtn({testParam, resultParam, lang}){
-  const navigate = useNavigate();
-  const foreignTextsObject = {
-    Kor : {
-      goHome : "다른 테스트 하러 가기",
-    },
-    Eng : {
-      goHome : "Go to other Tests",
-    },
-    Jp : {
-      goHome : "他のテストをしに行く",
-    }
+// 언어별 텍스트 객체를 컴포넌트 외부로 이동
+const foreignTextsObject = {
+  Kor : {
+    goHome : "다른 테스트 하러 가기",
+  },
+  Eng : {
+    goHome : "Go to other Tests",
+  },
+  Jp : {
+    goHome : "他のテストをしに行く",
   }
+};
 
-  const onClickGoHomeButton = () => {
+// React 컴포넌트 정의
+function GoAnotherTestBtn({lang}) {
+  const navigate = useNavigate();
+  
+  // 언어에 맞는 버튼 텍스트를 메모이제이션
+  const buttonText = useMemo(() => {
+    if (!lang) return foreignTextsObject.Kor.goHome;
+    return foreignTextsObject[lang]?.goHome || foreignTextsObject.Kor.goHome;
+  }, [lang]);
+
+  // 이벤트 핸들러 메모이제이션
+  const onClickGoHomeButton = useCallback(() => {
     eventSenderGA("Paging","Go-Home Button","Result");
     navigate("/");
-  }
+  }, [navigate]);
 
   return(
     <ButtonContainer>
       <StyledButton onClick={onClickGoHomeButton}>
         <HomeOutlined className="home-icon" />
-        <span>{lang && foreignTextsObject[lang]?.goHome}</span>
+        <span>{buttonText}</span>
       </StyledButton>
     </ButtonContainer>
-  )
+  );
 }
 
-export default GoAnotherTestBtn;
+// memo로 감싸기: React 19에서는 컴포넌트를 먼저 정의하고 별도로 memo() 래핑하는 방식이 더 안정적
+export default memo(GoAnotherTestBtn);

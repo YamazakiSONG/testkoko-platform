@@ -1,27 +1,69 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo, useMemo } from "react";
 import { TESTS } from "../../data/TESTS";
 import { Link, useSearchParams } from "react-router-dom";
 import styles from './resultThumbnailList.module.css';
 import { FloatButton, Skeleton } from 'antd';
 
-const ResultThumbnailList = () => {
+// React 컴포넌트 정의
+function ResultThumbnailList({ testParam, lang }) {
   const [searchParams] = useSearchParams();
   const [testList, setTestList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // 로컬 검색어 파라미터보다 직접 전달된 props를 우선 사용하여 메모이제이션
+  const currentLanguage = useMemo(() => 
+    lang || searchParams.get("lang") || 'Kor',
+    [lang, searchParams]
+  );
+
+  const currentTestParam = useMemo(() => 
+    testParam || searchParams.get("test"),
+    [testParam, searchParams]
+  );
 
   useEffect(() => {
-    const currentLanguage = searchParams.get("lang") || 'Kor';
-    const currentTestParam = searchParams.get("test");
+    setIsLoading(true);
+    
+    if (!currentLanguage || !currentTestParam) {
+      setIsLoading(false);
+      return;
+    }
     
     const filteredTests = TESTS.filter((test) => {
-      return test?.info?.mainUrl !== currentTestParam && test?.info?.lang === currentLanguage;
+      return test?.info?.mainUrl !== currentTestParam && 
+             test?.info?.lang === currentLanguage;
     });
     
     setTestList(filteredTests);
-  }, [searchParams]);
+    setIsLoading(false);
+  }, [currentTestParam, currentLanguage]);
 
-  const onBackToTopButtonClick = () => {
+  // 이벤트 핸들러 메모이제이션
+  const onBackToTopButtonClick = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, []);
+
+  // 스켈레톤 스타일 메모이제이션
+  const skeletonStyle = useMemo(() => ({
+    height: "20rem", 
+    width: "100%", 
+    margin: "1rem 0"
+  }), []);
+
+  // 로딩 중 화면 표시
+  if (isLoading) {
+    return <Skeleton active style={skeletonStyle} />;
+  }
+
+  // 결과가 없는 경우의 메시지를 언어별로 메모이제이션
+  const noResultsMessage = useMemo(() => {
+    const messages = {
+      'Kor': '해당 언어의 다른 테스트가 없습니다.',
+      'Eng': 'No other tests available in this language.',
+      'Jp': 'この言語の他のテストはありません。'
+    };
+    return messages[currentLanguage] || messages['Kor'];
+  }, [currentLanguage]);
 
   return (
     <div className={styles.thumbnailContainer}>
@@ -41,11 +83,16 @@ const ResultThumbnailList = () => {
                 </div>
               </div>
             </Link>
-            {test?.info?.color && <div className={styles.colorBar} style={{ backgroundColor: test?.info?.color }}></div>}
+            {test?.info?.color && (
+              <div 
+                className={styles.colorBar} 
+                style={{ backgroundColor: test.info.color }}
+              />
+            )}
           </div>
         ))
       ) : (
-        <Skeleton active style={{ height: "20rem", width: "100%", margin: "1rem 0" }} />
+        <div className={styles.noResults}>{noResultsMessage}</div>
       )}
       <FloatButton.BackTop 
         visibilityHeight={400} 
@@ -53,6 +100,7 @@ const ResultThumbnailList = () => {
       />
     </div>
   );
-};
+}
 
-export default ResultThumbnailList;
+// memo로 컴포넌트 래핑: React 19에서 권장되는 방식
+export default memo(ResultThumbnailList);

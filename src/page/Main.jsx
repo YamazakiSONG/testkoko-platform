@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import LanguageIcons from "../components/main/LanguageIcons";
 import MainBanner from "../components/main/MainBanner";
 import CategoryButtons from "../components/main/CategoryButtons";
@@ -29,7 +30,8 @@ const ContentWrapper = styled.main`
     }
 `;
 
-function Main(){
+// 메인 컴포넌트를 일반 함수로 정의
+function MainComponent(){
     return (
         <>
             <MainMetatagRenderer />
@@ -47,5 +49,8 @@ function Main(){
         </>
     );
 }
+
+// memo로 감싸서 불필요한 리렌더링 방지
+const Main = memo(MainComponent);
 
 export default Main;

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import CoupangDynamicBanner from '../CoupangDynamicBanner';
 import styled, { keyframes } from 'styled-components';
 import GoToHomeButton from '../test/GoToHomeButton';
+import { memo, useCallback } from 'react';
 
 const BlogContainer = styled.div`
   max-width: 100%;
@@ -152,32 +153,34 @@ const StyledDivider = styled(Divider)`
   }
 `;
 
-function BlogRenderer({content}){
-  const onTestThumbnailClick = () => {
+function BlogRenderer({content}) {
+  const onTestThumbnailClick = useCallback(() => {
     eventSenderGA("Paging", "Click Blog Bottom Test Thumbnail", "Blog");
-  }
+  }, []);
 
-  const onEndTextClick = () => {
+  const onEndTextClick = useCallback(() => {
     eventSenderGA("Paging", "Click Blog End Text Button", "Blog");
-  }
+  }, []);
+
+  if (!content) return null;
 
   return (
     <BlogContainer>
-      <BlogTitle>{content?.title}</BlogTitle>
+      <BlogTitle>{content.title}</BlogTitle>
       <BlogContent>
-        <ReactMarkdown>{content?.texts}</ReactMarkdown>
+        <ReactMarkdown>{content.texts}</ReactMarkdown>
       </BlogContent>
       <StyledDivider />
       <CoupangDynamicBanner unit={"resultBanner"}/>
-      <Link to={`/${content?.testUrl}`} onClick={onEndTextClick}>
+      <Link to={`/${content.testUrl}`} onClick={onEndTextClick}>
         <EndTextButton>
-          {content?.endText}
+          {content.endText}
         </EndTextButton>
       </Link>
-      <Link to={`/${content?.testUrl}`} onClick={onTestThumbnailClick}>
+      <Link to={`/${content.testUrl}`} onClick={onTestThumbnailClick}>
         <BlogImage
-          src={`${content?.testImg}`}
-          alt={`${content?.testUrl}`}
+          src={content.testImg}
+          alt={content.testUrl}
         />
       </Link>
       <GoToHomeButton page="Blog"/>
@@ -185,4 +188,4 @@ function BlogRenderer({content}){
   )
 }
 
-export default BlogRenderer;
+export default memo(BlogRenderer);

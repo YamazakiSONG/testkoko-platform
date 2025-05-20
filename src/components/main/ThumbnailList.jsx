@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState, useCallback, useMemo, memo } from 'react';
 import { TESTS } from '../../data/TESTS';
 import { Link, useSearchParams } from 'react-router-dom';
 import { base_url } from '../../App';
@@ -118,14 +118,17 @@ const ThumbnailItem = styled.div`
   }
 `;
 
-function ThumbnailList(){
+// 메인 컴포넌트 함수
+function ThumbnailListComponent(){
     const [searchParams] = useSearchParams();
     const [testList, setTestList] = useState([]);
 
+    // 검색 파라미터 값을 메모이제이션
+    const currentLanguage = useMemo(() => searchParams.get("lang") || 'Kor', [searchParams]);
+    const currentCategory = useMemo(() => searchParams.get("cat"), [searchParams]);
+
     useEffect(() => {
-        const currentLanguage = searchParams.get("lang") || 'Kor';
-        const currentCategory = searchParams.get("cat");
-        
+        // 검색 매개변수 변경시에만 필터링 수행
         const filteredTests = TESTS.filter((test) => {
             if (currentCategory) {
                 return test?.info?.lang === currentLanguage && test?.info?.category === currentCategory;
@@ -134,11 +137,29 @@ function ThumbnailList(){
         });
         
         setTestList(filteredTests);
-    }, [searchParams]);
+    }, [currentLanguage, currentCategory]);
 
-    const onBackToTopButtonClick = () => {
+    // 이벤트 핸들러를 메모이제이션
+    const onBackToTopButtonClick = useCallback(() => {
         eventSenderGA("BackToTop","BackToTopButton","MainPage");
-    }
+    }, []);
+
+    // 스켈레톤 로딩 상태를 메모이제이션
+    const skeletonStyle = useMemo(() => ({
+        height: "20rem", 
+        width: "100%", 
+        margin: "1rem 0"
+    }), []);
+
+    // 플로트 버튼 스타일을 메모이제이션
+    const floatButtonStyle = useMemo(() => ({
+        position: 'fixed',
+        bottom: 24,
+        right: 24,
+        zIndex: 1000,
+        width: '40px',
+        height: '40px'
+    }), []);
 
     return(
         <>
@@ -175,23 +196,19 @@ function ThumbnailList(){
                         </ThumbnailItem>
                     ))
                 ) : (
-                    <Skeleton active style={{height: "20rem", width: "100%", margin: "1rem 0"}}/>
+                    <Skeleton active style={skeletonStyle}/>
                 )}
             </ThumbnailContainer>
             <FloatButton.BackTop 
                 visibilityHeight={50} 
                 onClick={onBackToTopButtonClick}
-                style={{
-                    position: 'fixed',
-                    bottom: 24,
-                    right: 24,
-                    zIndex: 1000,
-                    width: '40px',
-                    height: '40px'
-                }}
+                style={floatButtonStyle}
             />
         </>
     );
 }
+
+// memo로 감싸서 불필요한 리렌더링 방지
+const ThumbnailList = memo(ThumbnailListComponent);
 
 export default ThumbnailList;

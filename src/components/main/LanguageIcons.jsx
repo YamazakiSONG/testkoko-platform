@@ -1,13 +1,16 @@
+import { memo, useCallback } from 'react';
 import { CircleFlag } from 'react-circle-flags';
 import { useNavigate } from 'react-router-dom';
 import styles from './languageIcons.module.css';
 
-function LanguageIcons(){
+// 메인 컴포넌트 함수
+function LanguageIconsComponent(){
     const navigate = useNavigate();
 
-    const onButtonClick = (lang) => {
+    // 이벤트 핸들러를 메모이제이션
+    const onButtonClick = useCallback((lang) => {
         navigate(`/?lang=${lang}`);
-    }
+    }, [navigate]);
 
     return (
         <div style={{ marginTop: '60px' }}>
@@ -29,6 +32,9 @@ function LanguageIcons(){
         </div>
     );
 }
+
+// memo로 감싸서 불필요한 리렌더링 방지
+const LanguageIcons = memo(LanguageIconsComponent);
 
 // mbti.com/?lang=Eng&category=love
 

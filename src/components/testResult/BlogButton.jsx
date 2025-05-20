@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
+import { memo, useMemo } from 'react';
 
 const glowAnimation = keyframes`
   0% {
@@ -135,29 +136,41 @@ const StyledButton = styled.button`
   }
 `;
 
-function BlogButton({testParam, lang}) {
-
-  const foreignTextsObject = {
-    Kor: {
-      btnText: "더 자세한 결과 보러가기",
-    },
-    Eng: {
-      btnText: "More detailed results",
-    },
-    Jp: {
-      btnText: "もっと詳しい結果を見に行こう！",
-    }
+// 외부로 이동한 다국어 텍스트 객체
+const foreignTextsObject = {
+  Kor: {
+    btnText: "더 자세한 결과 보러가기",
+  },
+  Eng: {
+    btnText: "More detailed results",
+  },
+  Jp: {
+    btnText: "もっと詳しい結果を見に行こう！",
   }
+};
+
+// 메인 컴포넌트 함수
+function BlogButtonComponent({testParam, resultParam, lang}) {
+  // 필요한 데이터가 없으면 렌더링하지 않음
+  if (!lang || !testParam || !resultParam) return null;
+
+  // 버튼 텍스트를 메모이제이션
+  const buttonText = useMemo(() => {
+    return foreignTextsObject[lang]?.btnText || foreignTextsObject.Kor.btnText;
+  }, [lang]);
 
   return (
     <ButtonContainer>
-      <StyledLink to={`/blog/${testParam}`}>
+      <StyledLink to={`/blog/${testParam}/${resultParam}`}>
         <StyledButton>
-          {lang && foreignTextsObject[lang]?.btnText}
+          {buttonText}
         </StyledButton>
       </StyledLink>
     </ButtonContainer>
   );
 }
+
+// memo로 감싸서 불필요한 리렌더링 방지
+const BlogButton = memo(BlogButtonComponent);
 
 export default BlogButton;

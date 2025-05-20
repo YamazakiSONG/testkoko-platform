@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import TestResultRenderer from '../components/testResult/TestResultRenderer';
 import ShareButtonGroup from '../components/testResult/ShareButtonGroup';
@@ -33,27 +33,44 @@ const ContentSection = styled.div`
 function TestResult(){
     const navigate = useNavigate();
     const { testParam, resultParam } = useParams();
-    const [renderResultInfo, setRenderResultInfo] = useState({});
-    const [renderTestInfo, setRenderTestInfo] = useState({});
+    const [renderResultInfo, setRenderResultInfo] = useState(null);
+    const [renderTestInfo, setRenderTestInfo] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    // 검색 매개변수를 바꾸지 않는 언어 정보를 메모이제이션
+    const lang = useMemo(() => {
+        return renderTestInfo?.info?.lang;
+    }, [renderTestInfo?.info?.lang]);
 
     useEffect(() => {
+        setIsLoading(true);
+        
         const testInfo = TESTS.find((test) => (test.info.mainUrl === testParam));
         if(!testInfo) {
             alert("존재하지 않는 테스트입니다!");
             navigate("/");
+            return;
         }
         
         setRenderTestInfo(testInfo);
 
         const resultInfo = testInfo?.results?.find((result) => (
             result.query === resultParam
-        ))
+        ));
+        
         if(!resultInfo){
             alert("존재하지 않는 결과값입니다!");
             navigate(`/${testInfo?.info?.mainUrl}`);
+            return;
         }
+        
         setRenderResultInfo(resultInfo);
+        setIsLoading(false);
     }, [testParam, resultParam, navigate]);
+
+    if (isLoading) {
+        return <div>로딩 중...</div>;
+    }
 
     return (
         <ResultPageContainer>
@@ -65,7 +82,7 @@ function TestResult(){
             <ContentSection>
                 <TestResultRenderer
                     renderResultInfo={renderResultInfo}
-                    lang={renderTestInfo?.info?.lang}
+                    lang={lang}
                 />
             </ContentSection>
             <ContentSection>
@@ -73,35 +90,32 @@ function TestResult(){
                     testParam={testParam}
                     resultParam={resultParam}
                     renderTestInfo={renderTestInfo}
-                    lang={renderTestInfo?.info?.lang}
+                    lang={lang}
                 />
             </ContentSection>
             <ContentSection>
                 <BlogButton
                     testParam={testParam}
                     resultParam={resultParam}
-                    lang={renderTestInfo?.info?.lang}
+                    lang={lang}
                 />
             </ContentSection>
             <ContentSection>
                 <GoAnotherTestBtn
-                    testParam={testParam}
-                    resultParam={resultParam}
-                    lang={renderTestInfo?.info?.lang}
+                    lang={lang}
                 />
             </ContentSection>
             <ContentSection>
                 <ResultButtonGroup
                     testParam={testParam}
                     resultParam={resultParam}
-                    renderTestInfo={renderTestInfo}
-                    lang={renderTestInfo?.info?.lang}
+                    lang={lang}
                 />
             </ContentSection>
             <ContentSection>
                 <ResultThumbnailList 
                     testParam={testParam}
-                    lang={renderTestInfo?.info?.lang}
+                    lang={lang}
                 />
             </ContentSection>
             <ContentSection>
