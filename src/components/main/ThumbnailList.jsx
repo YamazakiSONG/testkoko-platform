@@ -4,43 +4,8 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { base_url } from '../../App';
 import { FloatButton, Skeleton } from 'antd';
 import { eventSenderGA } from '../../tools/tools';
-import CoupangDynamicBanner from '../CoupangDynamicBanner';
 import styled from 'styled-components';
 
-const CategoryText = styled.span`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  font-size: 1.2rem;
-  z-index: 1;
-  transition: all 0.3s ease;
-  background: linear-gradient(45deg, #87CEEB, #ff79b0);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  
-  &.top {
-    top: 15px;
-  }
-  
-  &.bottom {
-    bottom: 15px;
-  }
-
-  @media (max-width: 768px) {
-    font-size: 1.1rem;
-    
-    &.top {
-      top: 10px;
-    }
-    
-    &.bottom {
-      bottom: 10px;
-    }
-  }
-`;
 
 const ImageContainer = styled.div`
   width: 100%;
@@ -176,54 +141,56 @@ function ThumbnailList(){
     }
 
     return(
-        <ThumbnailContainer>
-            {testList.length > 0 ? (
-                testList.map((test) => (
-                    <ThumbnailItem key={test?.info?.mainUrl}>
-                        <Link
-                            to={`${base_url}/${test?.info?.mainUrl}`}
-                            style={{ width: '100%', textDecoration: 'none' }}
-                        >
-                            <ImageContainer>
-                                <img
-                                    src={test?.info?.thumbImage} 
-                                    alt={test?.info?.mainUrl}
-                                    loading="lazy"
-                                />
-                                <TextContainer bgColor={test?.info?.color}>
-                                    <TitleText 
-                                        textSize={test?.info?.textSize}
-                                        textColor={test?.info?.textColor}
-                                    >
-                                        {test?.info?.mainTitle}
-                                    </TitleText>
-                                    <DescriptionText 
-                                        textSize={test?.info?.descriptionTextSize}
-                                        textColor={test?.info?.descriptionTextColor}
-                                    >
-                                        {test?.info?.subTitle}
-                                    </DescriptionText>
-                                </TextContainer>
-                            </ImageContainer>
-                        </Link>
-                    </ThumbnailItem>
-                ))
-            ) : (
-                <Skeleton active style={{height: "20rem", width: "100%", margin: "1rem 0"}}/>
-            )}
+        <>
+            <ThumbnailContainer>
+                {testList.length > 0 ? (
+                    testList.map((test) => (
+                        <ThumbnailItem key={test?.info?.mainUrl}>
+                            <Link
+                                to={`${base_url}/${test?.info?.mainUrl}`}
+                                style={{ width: '100%', textDecoration: 'none' }}
+                            >
+                                <ImageContainer>
+                                    <img
+                                        src={test?.info?.thumbImage} 
+                                        alt={test?.info?.mainUrl}
+                                        loading="lazy"
+                                    />
+                                    <TextContainer bgColor={test?.info?.color}>
+                                        <TitleText 
+                                            textSize={test?.info?.textSize}
+                                            textColor={test?.info?.textColor}
+                                        >
+                                            {test?.info?.mainTitle}
+                                        </TitleText>
+                                        <DescriptionText 
+                                            textSize={test?.info?.descriptionTextSize}
+                                            textColor={test?.info?.descriptionTextColor}
+                                        >
+                                            {test?.info?.subTitle}
+                                        </DescriptionText>
+                                    </TextContainer>
+                                </ImageContainer>
+                            </Link>
+                        </ThumbnailItem>
+                    ))
+                ) : (
+                    <Skeleton active style={{height: "20rem", width: "100%", margin: "1rem 0"}}/>
+                )}
+            </ThumbnailContainer>
             <FloatButton.BackTop 
-                visibilityHeight={400} 
+                visibilityHeight={50} 
                 onClick={onBackToTopButtonClick}
                 style={{
+                    position: 'fixed',
                     bottom: 24,
                     right: 24,
-                    '@media (max-width: 768px)': {
-                        bottom: 16,
-                        right: 16
-                    }
+                    zIndex: 1000,
+                    width: '40px',
+                    height: '40px'
                 }}
             />
-        </ThumbnailContainer>
+        </>
     );
 }
 

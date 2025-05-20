@@ -8,9 +8,9 @@ import {TESTS} from '../data/TESTS.js';
 import GoToHomeButton from '../components/test/GoToHomeButton.jsx';
 import BlogButton from '../components/testResult/BlogButton.jsx';
 import TestResultMetatagRenderer from '../components/metatagRenderer/TestResultMetatagRenderer.jsx';
-import CoupangDynamicBanner from '../components/CoupangDynamicBanner.jsx';
 import styled from 'styled-components';
 import GoAnotherTestBtn from '../components/testResult/GoAnotherTestBtn.jsx';
+
 const ResultPageContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
@@ -77,9 +77,6 @@ function TestResult(){
                 />
             </ContentSection>
             <ContentSection>
-                <CoupangDynamicBanner unit={"resultBanner"}/>
-            </ContentSection>
-            <ContentSection>
                 <BlogButton
                     testParam={testParam}
                     resultParam={resultParam}
@@ -102,7 +99,10 @@ function TestResult(){
                 />
             </ContentSection>
             <ContentSection>
-                <ResultThumbnailList testParam={testParam}/>
+                <ResultThumbnailList 
+                    testParam={testParam}
+                    lang={renderTestInfo?.info?.lang}
+                />
             </ContentSection>
             <ContentSection>
                 <GoToHomeButton page="Result"/>
