@@ -2,7 +2,6 @@ import { Divider } from 'antd';
 import ReactMarkdown from 'react-markdown';
 import { eventSenderGA } from '../../tools/tools';
 import { Link } from 'react-router-dom';
-import CoupangDynamicBanner from '../CoupangDynamicBanner';
 import styled, { keyframes } from 'styled-components';
 import GoToHomeButton from '../test/GoToHomeButton';
 import { memo, useCallback } from 'react';
@@ -171,7 +170,6 @@ function BlogRenderer({content}) {
         <ReactMarkdown>{content.texts}</ReactMarkdown>
       </BlogContent>
       <StyledDivider />
-      <CoupangDynamicBanner unit={"resultBanner"}/>
       <Link to={`/${content.testUrl}`} onClick={onEndTextClick}>
         <EndTextButton>
           {content.endText}
@@ -183,6 +181,7 @@ function BlogRenderer({content}) {
           alt={content.testUrl}
         />
       </Link>
+      
       <GoToHomeButton page="Blog"/>
     </BlogContainer>
   )
