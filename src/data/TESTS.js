@@ -1066,448 +1066,448 @@ export const TESTS = [
       }
     ],
   },
-  //  // areYouTEng
-  //  {
-  //   info: {
-  //     mainTitle: "너 T야?",
-  //     subTitle: "MBTI테스트 - T 성향 측정기. 나의 T 성향은 어느정도일까?",
-  //     mainUrl: "areYouTEng",
-  //     testType: "T_PERSONALITY",
-  //     mainImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
-  //     thumbImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
-  //     lang: "Eng",
-  //     category: "characteristic",
-  //     locale: "en_US",
-  //     creator: "테스트코코",
-  //     keywords: "MBTI 테스트,심리테스트,테스트코코,ESTJ,ESTP,ESFJ,ESFP,ENTJ,ENTP,ENFJ,ENFP,ISTJ,ISTP,ISFJ,ISFP,INTJ,INTP,INFJ,INFP"
-  //   },
-  //   questions: [
-  //     {
-  //       which: "TF",
-  //       question: "I failed the test by 1 point. I'm so sad.",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "You lost by just one point? That's the whole universe telling you, 'Take a break this time.' So don't be too sad."
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "Let's put off the sadness for a while. And let's see where one point was cut."
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "In my heart, I think, 'I don't think it's a one-point difference?'"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "I'm going through a tough time, and my friend comforts me, saying, 'Hang in there! Everything will be fine!'",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "It might not have been much help, but your words still meant a lot. Thanks."
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "I respond, `If 'cheer up' really worked, the world wouldn't have depression, would it?`"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "Don't say anything that doesn't really help you, and please organize my problems in Excel. It helps more."
-  //         }
-  //       ]     
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "My friend breaks up with her lover and calls me while drinking alone.",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "It's annoying to go out, but I'm running to my friend because I'm afraid he'll be sad"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "Organize the reasons for the breakup on a spreadsheet before you get into your emotions."
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "Breakups heal, but the liver doesn't regenerate that quickly. Think rationally"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "I bought bread because I was depressed 😭",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "If eating bread can cure depression, it will be the ultimate cost-effective treatment."
-  //         },  
-  //         {
-  //           score: 1,
-  //           content: "Bread does not cure depression and only gives blood sugar the illusion of short-term peace."
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "Curing depression with bread is like fixing a computer error by stuffing it with cookies—comforting, but completely useless."
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "I changed my hair color. What do you think?",
-  //       answers: [
-  //         {
-  //           score: 0, 
-  //           content: "What? What's going on all of a sudden?"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "Changing your hair color won't boost life efficiency, but I respect the spirit of experimentation."
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "It's impossible to judge without data. Please research and submit before and after photos and reactions around you."
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "I totally failed the exam… 😭",
-  //       answers: [
-  //         {
-  //           score: 0, 
-  //           content: "Failing isn't a failure, it's data. It's a successful data collection to map out the next test strategy"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "Did you analyze the cause of your failure? I think you studied flaunting, not to learn knowledge."
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "Before we proceed, let's define 'failure'. What's the numerical threshold here? Be specific."
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "I have homework due tomorrow, but I'm so sleepy right now… What should I do?",
-  //       answers: [
-  //         {
-  //           score: 0, 
-  //           content: "If you're going to sleep now, shouldn't you at least consider the minimum time to reach REM sleep?"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "Sleepiness is a biological glitch. Incomplete homework is a system failure. Calculate which one's more critical."
-  //         },    
-  //         {
-  //           score: 2,
-  //           content: "Of course, I have to do my homework. Is the circuit broken? Let's reboot."
-  //         }
-  //       ]
-  //     },  
-  //     {
-  //       which: "TF",
-  //       question: "After watching the emotional ending of the drama...",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "The plot structure was well-crafted, but the emotional buildup felt overly invested."
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "No tears were shed. The only pain I felt was from the gaping holes in logic."
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "Emotion? That's just a temporary chemical reaction in the brain. You've basically been emotionally manipulated by Netflix."
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "You don't seem to have studied much, but why do you get good results on the test?",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "Statistically speaking, you're wrong. I studied six hours a day—I just didn't show it. Seems like your observation skills need some work."
+   // areYouTEng
+   {
+    info: {
+      mainTitle: "너 T야?",
+      subTitle: "MBTI테스트 - T 성향 측정기. 나의 T 성향은 어느정도일까?",
+      mainUrl: "areYouTEng",
+      testType: "T_PERSONALITY",
+      mainImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
+      thumbImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
+      lang: "Eng",
+      category: "characteristic",
+      locale: "en_US",
+      creator: "테스트코코",
+      keywords: "MBTI 테스트,심리테스트,테스트코코,ESTJ,ESTP,ESFJ,ESFP,ENTJ,ENTP,ENFJ,ENFP,ISTJ,ISTP,ISFJ,ISFP,INTJ,INTP,INFJ,INFP"
+    },
+    questions: [
+      {
+        which: "TF",
+        question: "I failed the test by 1 point. I'm so sad.",
+        answers: [
+          {
+            score: 0,
+            content: "You lost by just one point? That's the whole universe telling you, 'Take a break this time.' So don't be too sad."
+          },
+          {
+            score: 1,
+            content: "Let's put off the sadness for a while. And let's see where one point was cut."
+          },
+          {
+            score: 2,
+            content: "In my heart, I think, 'I don't think it's a one-point difference?'"
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "I'm going through a tough time, and my friend comforts me, saying, 'Hang in there! Everything will be fine!'",
+        answers: [
+          {
+            score: 0,
+            content: "It might not have been much help, but your words still meant a lot. Thanks."
+          },
+          {
+            score: 1,
+            content: "I respond, `If 'cheer up' really worked, the world wouldn't have depression, would it?`"
+          },
+          {
+            score: 2,
+            content: "Don't say anything that doesn't really help you, and please organize my problems in Excel. It helps more."
+          }
+        ]     
+      },
+      {
+        which: "TF",
+        question: "My friend breaks up with her lover and calls me while drinking alone.",
+        answers: [
+          {
+            score: 0,
+            content: "It's annoying to go out, but I'm running to my friend because I'm afraid he'll be sad"
+          },
+          {
+            score: 1,
+            content: "Organize the reasons for the breakup on a spreadsheet before you get into your emotions."
+          },
+          {
+            score: 2,
+            content: "Breakups heal, but the liver doesn't regenerate that quickly. Think rationally"
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "I bought bread because I was depressed 😭",
+        answers: [
+          {
+            score: 0,
+            content: "If eating bread can cure depression, it will be the ultimate cost-effective treatment."
+          },  
+          {
+            score: 1,
+            content: "Bread does not cure depression and only gives blood sugar the illusion of short-term peace."
+          },
+          {
+            score: 2,
+            content: "Curing depression with bread is like fixing a computer error by stuffing it with cookies—comforting, but completely useless."
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "I changed my hair color. What do you think?",
+        answers: [
+          {
+            score: 0, 
+            content: "What? What's going on all of a sudden?"
+          },
+          {
+            score: 1,
+            content: "Changing your hair color won't boost life efficiency, but I respect the spirit of experimentation."
+          },
+          {
+            score: 2,
+            content: "It's impossible to judge without data. Please research and submit before and after photos and reactions around you."
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "I totally failed the exam… 😭",
+        answers: [
+          {
+            score: 0, 
+            content: "Failing isn't a failure, it's data. It's a successful data collection to map out the next test strategy"
+          },
+          {
+            score: 1,
+            content: "Did you analyze the cause of your failure? I think you studied flaunting, not to learn knowledge."
+          },
+          {
+            score: 2,
+            content: "Before we proceed, let's define 'failure'. What's the numerical threshold here? Be specific."
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "I have homework due tomorrow, but I'm so sleepy right now… What should I do?",
+        answers: [
+          {
+            score: 0, 
+            content: "If you're going to sleep now, shouldn't you at least consider the minimum time to reach REM sleep?"
+          },
+          {
+            score: 1,
+            content: "Sleepiness is a biological glitch. Incomplete homework is a system failure. Calculate which one's more critical."
+          },    
+          {
+            score: 2,
+            content: "Of course, I have to do my homework. Is the circuit broken? Let's reboot."
+          }
+        ]
+      },  
+      {
+        which: "TF",
+        question: "After watching the emotional ending of the drama...",
+        answers: [
+          {
+            score: 0,
+            content: "The plot structure was well-crafted, but the emotional buildup felt overly invested."
+          },
+          {
+            score: 1,
+            content: "No tears were shed. The only pain I felt was from the gaping holes in logic."
+          },
+          {
+            score: 2,
+            content: "Emotion? That's just a temporary chemical reaction in the brain. You've basically been emotionally manipulated by Netflix."
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "You don't seem to have studied much, but why do you get good results on the test?",
+        answers: [
+          {
+            score: 0,
+            content: "Statistically speaking, you're wrong. I studied six hours a day—I just didn't show it. Seems like your observation skills need some work."
 
 
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "Efficiency, ever heard of it? We both studied, but while you absorbed 30%, I processed 97%. Please understand—cognitive ability isn't uniform across individuals."
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "'You didn't seem to study' is your personal perception. My actual input was 15 hours daily."
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "I saved up and bought a new phone!",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "Oh, nice! But honestly, if it were me, I probably would've gone with a different phone for that price."
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "If you'd invested that money in stocks, you'd be up 12.7% by now. Wealth accumulation beats emotional spending every time."
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "Hmm… not bad for the price. What nanometer process is the CPU? And how much RAM does it have?"
-  //         }
-  //       ]
-  //     },
-  //   ],
-  //   results: [
-  //     {
-  //       type: "T1", // 1단계
-  //       query: "qsdcred",
-  //       img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv1_ko.avif",
-  //     },
-  //     {
-  //       type: "T2", // 2단계
-  //       query: "asdascr",
-  //       img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv2_ko.avif",
-  //     },
-  //     {
-  //       type: "T3", // 3단계
-  //       query: "ascxrcd",
-  //       img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv3_ko.avif",
-  //     },
-  //     {
-  //       type: "T4", //4단계
-  //       query: "ascxdda",
-  //       img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv4_ko.avif",
-  //     }
-  //   ],
-  // },
-  //  // areYouTJp
-  //  {
-  //   info: {
-  //     mainTitle: "너 T야?",
-  //     subTitle: "MBTI테스트 - T 성향 측정기. 나의 T 성향은 어느정도일까?",
-  //     mainUrl: "areYouTJp",
-  //     testType: "T_PERSONALITY",
-  //     mainImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
-  //     thumbImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
-  //     lang: "Jp",
-  //     category: "characteristic",
-  //     locale: "ja_JP",
-  //     creator: "테스트코코",
-  //     keywords: "MBTI 테스트,심리테스트,테스트코코,ESTJ,ESTP,ESFJ,ESFP,ENTJ,ENTP,ENFJ,ENFP,ISTJ,ISTP,ISFJ,ISFP,INTJ,INTP,INFJ,INFP"
-  //   },
-  //   questions: [
-  //     {
-  //       which: "TF",
-  //       question: "今回の試験、1点差で落ちちゃった。すごく悔しいよ",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "1点差で落ちたの？それはきっと、宇宙が『今回は休んでいいよ』って言ってるんだよ。あまり落ち込まないでね。"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "悲しいのはわかるけど、感情の処理は後にして、まずはどこで1点落としたのかを分析しよう。"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "心の中で「本当に1点差なのかな…？」って思ってる。"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "つらいことがあって、友達が「ファイト〜！きっとうまくいくよ！」って励ましてくれた。",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "現実的な意味では助かってないけど、その気持ちはありがたく受け取るよ。"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "「ファイトで何でも解決するなら、世界中にうつ病の人なんていないよね。」"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "そんな実質的に意味のない励ましするくらいなら、いっそ私の悩みをエクセルで整理してほしい。"
-  //         }
-  //       ]     
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "友達が恋人と別れて、一人でお酒を飲みながら私に電話をかけてきた。",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "正直めんどくさいけど、友達が落ち込んでそうだから、一緒に飲みに行くことにした。"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "感情を電話で共有する前に、まず別れた理由を表にまとめてみて。"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "失恋の感情は一時的だけど、飲酒は肝臓と腎臓に長期的なダメージを与えるよ。冷静に判断しよう。"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "落ち込んじゃって、パン買っちゃった",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "パンを買って食べるだけでうつが治るなら、コスパ最強じゃない？"
-  //         },  
-  //         {
-  //           score: 1,
-  //           content: "パンはうつを解決しない。ただ一時的に血糖値を納得させるだけだ。"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "うつをパンで解決しようとするのは、パソコンの不具合にお菓子を突っ込めば直るって思ってるのと同じだよ。"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "髪色を変えた。 どう？",
-  //       answers: [
-  //         {
-  //           score: 0, 
-  //           content: "えっ、どうしたの！？急に何かあったの？"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "髪色を変えたからって人生の効率が上がるわけじゃないけど、そのチャレンジ精神は認めるよ。"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "データがなければ判断できない。ビフォー・アフターの写真、RGB値、周囲の反応のサンプル調査を提出して。"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "私試験台無しにして悲しい",
-  //       answers: [
-  //         {
-  //           score: 0, 
-  //           content: "台無しにしたというのは失敗ではなくデータだ。次の試験の戦略を立てるための情報収集は成功した。"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "つぶれた原因を分析してみましたか？ 私の考えでは、あなたは知識を学習するための勉強ではなく、見せかけ式の勉強をしたようです。"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "「台無しにした」という単語の定義を先にしよう。 何点以下が台無しなの？"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "明日までに宿題やらなきゃいけないのに、今めっちゃ眠い…どうしよう？",
-  //       answers: [
-  //         {
-  //           score: 0, 
-  //           content: "今寝るなら、最低でもレム睡眠に到達する時間を考えて寝たほうがいいんじゃない？"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "眠いのは生物学的なエラー、宿題未提出はシステムの致命的な失敗。どっちが致命的か、計算してみて。"
-  //         },    
-  //         {
-  //           score: 2,
-  //           content: "宿題やるのは当然でしょ…。理性の回路が壊れてる？一回リブートしよ。"
-  //         }
-  //       ]
-  //     },  
-  //     {
-  //       which: "TF",
-  //       question: "感動的なドラマの結末を見たあとで、",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "ドラマの起承転結はよくできてたけど、感情の流れにはちょっと過剰に入り込みすぎてたかな。"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "泣きはしなかったよ。ただ、論理の穴に心が痛んだだけ。"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "感動？それは脳内の一時的な化学反応にすぎないよ。君、Netflixに感情コントロールされてるだけだよ。"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "あなた勉強あまりしなかったようだが、試験の成績がよく出たな",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "統計的に見て君が間違ってるよ。僕は毎日6時間ずつ勉強してたけど、そう見えなかっただけ。"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "効率って言葉、知らないの？同じ時間勉強しても、君の吸収率は30%、僕は97%。人それぞれ脳の性能が違うってこと、覚えておいてね。"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "「やってなさそう」っていうのは君の主観でしかないよ。実際は1日15時間勉強してたから。勝手に決めつけないで"
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       which: "TF",
-  //       question: "お金を貯めて、スマホ買ったよ！",
-  //       answers: [
-  //         {
-  //           score: 0,
-  //           content: "おー、いいじゃん！でも、私だったらそのお金で別のスマホ買ってたかも。"
-  //         },
-  //         {
-  //           score: 1,
-  //           content: "そのお金で株を買ってたら、今ごろ＋12.7％の利益が出てたよ。感情消費より資産形成が優先でしょ。"
-  //         },
-  //         {
-  //           score: 2,
-  //           content: "うん…価格に対してスペックは悪くないね。CPUは何ナノメートル製造？メモリは何ギガ？"
-  //         }
-  //       ]
-  //     },
-  //   ],
-  //   results: [
-  //     {
-  //       type: "T1", // 1단계
-  //       query: "qsdcred",
-  //       img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv1_ko.avif",
-  //     },
-  //     {
-  //       type: "T2", // 2단계
-  //       query: "asdascr",
-  //       img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv2_ko.avif",
-  //     },
-  //     {
-  //       type: "T3", // 3단계
-  //       query: "ascxrcd",
-  //       img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv3_ko.avif",
-  //     },
-  //     {
-  //       type: "T4", //4단계
-  //       query: "ascxdda",
-  //       img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv4_ko.avif",
-  //     }
-  //   ],
-  // },
+          },
+          {
+            score: 1,
+            content: "Efficiency, ever heard of it? We both studied, but while you absorbed 30%, I processed 97%. Please understand—cognitive ability isn't uniform across individuals."
+          },
+          {
+            score: 2,
+            content: "'You didn't seem to study' is your personal perception. My actual input was 15 hours daily."
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "I saved up and bought a new phone!",
+        answers: [
+          {
+            score: 0,
+            content: "Oh, nice! But honestly, if it were me, I probably would've gone with a different phone for that price."
+          },
+          {
+            score: 1,
+            content: "If you'd invested that money in stocks, you'd be up 12.7% by now. Wealth accumulation beats emotional spending every time."
+          },
+          {
+            score: 2,
+            content: "Hmm… not bad for the price. What nanometer process is the CPU? And how much RAM does it have?"
+          }
+        ]
+      },
+    ],
+    results: [
+      {
+        type: "T1", // 1단계
+        query: "qsdcred",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv1_ko.avif",
+      },
+      {
+        type: "T2", // 2단계
+        query: "asdascr",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv2_ko.avif",
+      },
+      {
+        type: "T3", // 3단계
+        query: "ascxrcd",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv3_ko.avif",
+      },
+      {
+        type: "T4", //4단계
+        query: "ascxdda",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv4_ko.avif",
+      }
+    ],
+  },
+   // areYouTJp
+   {
+    info: {
+      mainTitle: "너 T야?",
+      subTitle: "MBTI테스트 - T 성향 측정기. 나의 T 성향은 어느정도일까?",
+      mainUrl: "areYouTJp",
+      testType: "T_PERSONALITY",
+      mainImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
+      thumbImage: "https://images.testkoko.com/T_areYouT/mainThumb/areYouT_main_thumb_ko.avif",
+      lang: "Jp",
+      category: "characteristic",
+      locale: "ja_JP",
+      creator: "테스트코코",
+      keywords: "MBTI 테스트,심리테스트,테스트코코,ESTJ,ESTP,ESFJ,ESFP,ENTJ,ENTP,ENFJ,ENFP,ISTJ,ISTP,ISFJ,ISFP,INTJ,INTP,INFJ,INFP"
+    },
+    questions: [
+      {
+        which: "TF",
+        question: "今回の試験、1点差で落ちちゃった。すごく悔しいよ",
+        answers: [
+          {
+            score: 0,
+            content: "1点差で落ちたの？それはきっと、宇宙が『今回は休んでいいよ』って言ってるんだよ。あまり落ち込まないでね。"
+          },
+          {
+            score: 1,
+            content: "悲しいのはわかるけど、感情の処理は後にして、まずはどこで1点落としたのかを分析しよう。"
+          },
+          {
+            score: 2,
+            content: "心の中で「本当に1点差なのかな…？」って思ってる。"
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "つらいことがあって、友達が「ファイト〜！きっとうまくいくよ！」って励ましてくれた。",
+        answers: [
+          {
+            score: 0,
+            content: "現実的な意味では助かってないけど、その気持ちはありがたく受け取るよ。"
+          },
+          {
+            score: 1,
+            content: "「ファイトで何でも解決するなら、世界中にうつ病の人なんていないよね。」"
+          },
+          {
+            score: 2,
+            content: "そんな実質的に意味のない励ましするくらいなら、いっそ私の悩みをエクセルで整理してほしい。"
+          }
+        ]     
+      },
+      {
+        which: "TF",
+        question: "友達が恋人と別れて、一人でお酒を飲みながら私に電話をかけてきた。",
+        answers: [
+          {
+            score: 0,
+            content: "正直めんどくさいけど、友達が落ち込んでそうだから、一緒に飲みに行くことにした。"
+          },
+          {
+            score: 1,
+            content: "感情を電話で共有する前に、まず別れた理由を表にまとめてみて。"
+          },
+          {
+            score: 2,
+            content: "失恋の感情は一時的だけど、飲酒は肝臓と腎臓に長期的なダメージを与えるよ。冷静に判断しよう。"
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "落ち込んじゃって、パン買っちゃった",
+        answers: [
+          {
+            score: 0,
+            content: "パンを買って食べるだけでうつが治るなら、コスパ最強じゃない？"
+          },  
+          {
+            score: 1,
+            content: "パンはうつを解決しない。ただ一時的に血糖値を納得させるだけだ。"
+          },
+          {
+            score: 2,
+            content: "うつをパンで解決しようとするのは、パソコンの不具合にお菓子を突っ込めば直るって思ってるのと同じだよ。"
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "髪色を変えた。 どう？",
+        answers: [
+          {
+            score: 0, 
+            content: "えっ、どうしたの！？急に何かあったの？"
+          },
+          {
+            score: 1,
+            content: "髪色を変えたからって人生の効率が上がるわけじゃないけど、そのチャレンジ精神は認めるよ。"
+          },
+          {
+            score: 2,
+            content: "データがなければ判断できない。ビフォー・アフターの写真、RGB値、周囲の反応のサンプル調査を提出して。"
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "私試験台無しにして悲しい",
+        answers: [
+          {
+            score: 0, 
+            content: "台無しにしたというのは失敗ではなくデータだ。次の試験の戦略を立てるための情報収集は成功した。"
+          },
+          {
+            score: 1,
+            content: "つぶれた原因を分析してみましたか？ 私の考えでは、あなたは知識を学習するための勉強ではなく、見せかけ式の勉強をしたようです。"
+          },
+          {
+            score: 2,
+            content: "「台無しにした」という単語の定義を先にしよう。 何点以下が台無しなの？"
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "明日までに宿題やらなきゃいけないのに、今めっちゃ眠い…どうしよう？",
+        answers: [
+          {
+            score: 0, 
+            content: "今寝るなら、最低でもレム睡眠に到達する時間を考えて寝たほうがいいんじゃない？"
+          },
+          {
+            score: 1,
+            content: "眠いのは生物学的なエラー、宿題未提出はシステムの致命的な失敗。どっちが致命的か、計算してみて。"
+          },    
+          {
+            score: 2,
+            content: "宿題やるのは当然でしょ…。理性の回路が壊れてる？一回リブートしよ。"
+          }
+        ]
+      },  
+      {
+        which: "TF",
+        question: "感動的なドラマの結末を見たあとで、",
+        answers: [
+          {
+            score: 0,
+            content: "ドラマの起承転結はよくできてたけど、感情の流れにはちょっと過剰に入り込みすぎてたかな。"
+          },
+          {
+            score: 1,
+            content: "泣きはしなかったよ。ただ、論理の穴に心が痛んだだけ。"
+          },
+          {
+            score: 2,
+            content: "感動？それは脳内の一時的な化学反応にすぎないよ。君、Netflixに感情コントロールされてるだけだよ。"
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "あなた勉強あまりしなかったようだが、試験の成績がよく出たな",
+        answers: [
+          {
+            score: 0,
+            content: "統計的に見て君が間違ってるよ。僕は毎日6時間ずつ勉強してたけど、そう見えなかっただけ。"
+          },
+          {
+            score: 1,
+            content: "効率って言葉、知らないの？同じ時間勉強しても、君の吸収率は30%、僕は97%。人それぞれ脳の性能が違うってこと、覚えておいてね。"
+          },
+          {
+            score: 2,
+            content: "「やってなさそう」っていうのは君の主観でしかないよ。実際は1日15時間勉強してたから。勝手に決めつけないで"
+          }
+        ]
+      },
+      {
+        which: "TF",
+        question: "お金を貯めて、スマホ買ったよ！",
+        answers: [
+          {
+            score: 0,
+            content: "おー、いいじゃん！でも、私だったらそのお金で別のスマホ買ってたかも。"
+          },
+          {
+            score: 1,
+            content: "そのお金で株を買ってたら、今ごろ＋12.7％の利益が出てたよ。感情消費より資産形成が優先でしょ。"
+          },
+          {
+            score: 2,
+            content: "うん…価格に対してスペックは悪くないね。CPUは何ナノメートル製造？メモリは何ギガ？"
+          }
+        ]
+      },
+    ],
+    results: [
+      {
+        type: "T1", // 1단계
+        query: "qsdcred",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv1_ko.avif",
+      },
+      {
+        type: "T2", // 2단계
+        query: "asdascr",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv2_ko.avif",
+      },
+      {
+        type: "T3", // 3단계
+        query: "ascxrcd",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv3_ko.avif",
+      },
+      {
+        type: "T4", //4단계
+        query: "ascxdda",
+        img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv4_ko.avif",
+      }
+    ],
+  },
   {
     info: {
       mainTitle: "꼰대 테스트",
