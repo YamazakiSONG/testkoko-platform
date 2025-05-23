@@ -257,7 +257,6 @@ function Intro({info, setMode}) {
         <IntroImage
           src={info?.mainImage} 
           alt={info?.mainTitle}
-          onClick={onImageClick}
         />
       </ImageWrapper>
       <StartButton onClick={onImageClick}>
