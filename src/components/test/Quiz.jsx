@@ -49,7 +49,7 @@ function Quiz({setMode, questions, scores, setScores, currentTest}) {
               onClick={() => onOptionClick(option)}
               key={option.content}
             >
-              <span>{option.content}</span>
+              <span dangerouslySetInnerHTML={{ __html: option.content }} />
             </button>
           ))
         }

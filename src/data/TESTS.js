@@ -877,7 +877,7 @@ export const TESTS = [
         answers: [
           {
             score: 0,
-            content: '1점 차이로 떨어졌다고? 그건 온 우주가 \n"이번에는 좀 쉬어"라고 말하는 거야.\n너무 슬퍼하지마'
+            content: '1점 차이로 떨어졌다고? 그건 온 우주가 \n<b>"이번에는 좀 쉬어"</b>라고 말하는 거야.\n너무 슬퍼하지마ㅠ'
           },
           {
             score: 1,
@@ -885,7 +885,7 @@ export const TESTS = [
           },
           {
             score: 2,
-            content: '겉으로는 위로 해주지만 속으로\n"진짜 1점 차이로 떨어진게 맞을까?"\n라고 생각한다.'
+            content: '겉으로는 위로 해주지만 속으로\n<b>"진짜 1점 차이로 떨어진게 맞을까?"</b>\n라고 생각한다.'
           }
         ]
       },
@@ -894,7 +894,7 @@ export const TESTS = [
         answers: [
           {
             score: 0,
-            content: '실질적인 도움은 되지 않지만 말이라도 고맙네.\n근데 무조건 잘 될건지 너가 어떻게 알아?'
+            content: '실질적인 도움은 되지 않지만 말이라도 고맙네.\n근데 무조건 잘 될건지에 대한 근거가 혹시 있어?'
           },
           {
             score: 1,
@@ -970,7 +970,7 @@ export const TESTS = [
           },
           {
             score: 2,
-            content: '"망했다"라는 정의를 먼저 내려야 할 것 같아.\n몇 점 이하가 망한 건데? 정확한 수치로 말해봐봐.'
+            content: '<b>"망했다"</b>라는 정의를 먼저 내려야 할 것 같아.\n몇 점 이하가 망한 건데? 정확한 수치로 말해봐봐.'
           }
         ]
       },
@@ -979,11 +979,11 @@ export const TESTS = [
         answers: [
           {
             score: 0, 
-            content: '진짜 졸린거야? 아니면 그냥 나한테 투정리는거야?\n뭐가 정답은 사실 알고 있지 않아?'
+            content: '당연히 숙제를 해야지... \n이성 회로 고장났어? 리부트 하자.'
           },
           {
-            score: 1,
-            content: '당연히 숙제를 해야지... \n이성 회로 고장났어? 리부트 하자.'
+            score: 1, 
+            content: '진짜 졸린거야? 아니면 그냥 나한테 투정리는거야?\n사실 뭐가 정답인지 알고 있지 않아?'
           },    
           {
             score: 2,
@@ -996,7 +996,7 @@ export const TESTS = [
         answers: [
           {
             score: 0,
-            content: '드라마 기승전결 완성도는 높았지만 \n감정선이 쓸데없이 과하게 투자됐어'
+            content: '드라마 기승전결 완성도는 높았지만 \n감정선이 쓸데없이 과하게 투자됐어.'
           },
           {
             score: 1,
@@ -1013,11 +1013,11 @@ export const TESTS = [
         answers: [
           {
             score: 0,
-            content: '"안 한 것 같아"는 너의 주관적 판단이야.\n순 공부 시간은 하루 평균 15시간이었어.\n함부로 판단하지마 머저리야.'
+            content: '<b>"안 한 것 같아"</b>는 너의 주관적 판단이야.\n순 공부 시간은 하루 평균 15시간이었어.\n함부로 판단하지마 머저리야.'
           },
           {
             score: 1,
-            content: '통계적으로 네가 틀렸어. 난 매일 6시간씩 공부했는데 네가 몰랐을 뿐이야. 관찰력 좀 기르길 바랄게ㅎㅎ'
+            content: '통계적으로 네가 틀렸어.\n난 매일 6시간씩 공부했는데 네가 몰랐을 뿐이야.\n관찰력 좀 기르길 바랄게ㅎㅎ'
           },
           {
             score: 2,
@@ -1030,15 +1030,15 @@ export const TESTS = [
         answers: [
           {
             score: 0,
-            content: "오 좋은데? 근데 나였으면 그 돈이면 다른 핸드폰 샀을 거 같아."
+            content: "오 축하해!\n근데 난 그 돈이면 다른 핸드폰 샀을 거 같아."
           },
           {
             score: 1,
-            content: "그 돈으로 주식 사는게 더 경제적이지 않을까?"
+            content: "흠...가격 대비 스펙 괜찮네.근데 램은 몇 GB야?"
           },
           {
             score: 2,
-            content: "음... 가격 대비 스펙 괜찮네. CPU는 몇 나노 공정? 램 몇 기가?"
+            content: "그 돈으로 주식 사는게 더 경제적이지 않을까?"
           }
         ]
       },
@@ -1047,21 +1047,33 @@ export const TESTS = [
       {
         type: "T1", // 1단계
         query: "qsdcred",
+        hashTag : [
+          '인간미','좋은친구'
+        ],
         img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv1_ko.avif",
       },
       {
         type: "T2", // 2단계
         query: "asdascr",
+        hashTag : [
+          '정없음','그저그럼'
+        ],
         img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv2_ko.avif",
       },
       {
         type: "T3", // 3단계
         query: "ascxrcd",
+        hashTag : [
+          '싸가지 없음','손절각'
+        ],
         img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv3_ko.avif",
       },
       {
         type: "T4", //4단계
         query: "ascxdda",
+        hashTag : [
+          'T발놈'
+        ],
         img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv4_ko.avif",
       }
     ],

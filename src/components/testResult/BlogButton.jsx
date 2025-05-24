@@ -32,20 +32,11 @@ const shimmerAnimation = keyframes`
 const ButtonContainer = styled.div`
   margin: 1.5rem 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
   width: 100%;
   max-width: 600px;
   padding: 0 1rem;
   box-sizing: border-box;
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  max-width: 500px;
 `;
 
 const StyledButton = styled.button`
@@ -81,6 +72,7 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 12px;
+  text-decoration: none;
 
   &::before {
     content: '';
@@ -159,13 +151,22 @@ function BlogButtonComponent({testParam, resultParam, lang}) {
     return foreignTextsObject[lang]?.btnText || foreignTextsObject.Kor.btnText;
   }, [lang]);
 
+  const handleClick = (e) => {
+    // 이벤트 버블링 방지
+    e.stopPropagation();
+  };
+
   return (
-    <ButtonContainer>
-      <StyledLink to={`/blog/${testParam}/${resultParam}`}>
+    <ButtonContainer onClick={handleClick}>
+      <Link 
+        to={`/blog/${testParam}/${resultParam}`}
+        style={{ textDecoration: 'none', display: 'block', width: '100%', maxWidth: '500px' }}
+        onClick={handleClick}
+      >
         <StyledButton>
           {buttonText}
         </StyledButton>
-      </StyledLink>
+      </Link>
     </ButtonContainer>
   );
 }

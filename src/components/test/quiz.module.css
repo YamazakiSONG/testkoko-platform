@@ -90,6 +90,11 @@
   overflow-wrap: break-word;
 }
 
+.optionButton span b {
+  font-weight: 700;
+  color: #1E90FF;
+}
+
 .progressContainer {
   width: 90%;
   max-width: 500px;

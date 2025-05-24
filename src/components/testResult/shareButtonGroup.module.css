@@ -1,47 +1,71 @@
-.urlShareButton {
-  width: 48px;
-  height: 48px;
-  border: 0px;
-  border-radius: 24px;
-  margin: 0 0.5rem;
-  color: white;
-  background-color: brown;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
+.shareButtonDiv {
   display: flex;
   align-items: center;
+  gap: 1.5rem;
   justify-content: center;
-  padding: 0;
-  line-height: 1;
-  transition: all 0.2s ease;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+/* 공통 버튼 스타일 */
+.shareButton {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  transition: transform 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.shareButton:hover {
+  transform: scale(1.05) !important;
+}
+
+.shareButton:active {
+  transform: scale(0.95) !important;
+}
+
+/* URL 공유 버튼 */
+.urlShareButton {
+  composes: shareButton;
+  background-color: #808080;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border: none;
 }
 
 .urlShareButton:hover {
-  background-color: lightcoral;
-  transform: translateY(-2px);
+  background-color: #666666;
 }
 
-.urlShareButton:active {
-  transform: translateY(1px);
-}
-
-@media (max-width: 768px) {
-  .urlShareButton {
-    width: 44px;
-    height: 44px;
-    border-radius: 22px;
-    font-size: 14px;
-    margin: 0 0.3rem;
-  }
-}
-
+/* 소셜 미디어 아이콘 */
 .socialMediaIcon {
-  padding: 0 0.5rem;
+  composes: shareButton;
 }
 
-.shareButtonDiv {
-  justify-content: center;
-  display: flex;
-  margin-bottom: 2.5rem;
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .shareButtonDiv {
+    gap: 1rem;
+  }
+
+  .shareButton {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .socialMediaIcon,
+  .urlShareButton {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .urlShareButton {
+    font-size: 0.8rem;
+  }
 }

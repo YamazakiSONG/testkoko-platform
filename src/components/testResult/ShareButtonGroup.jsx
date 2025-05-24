@@ -1,8 +1,9 @@
-import { FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, XIcon } from 'react-share';
+import { TwitterShareButton, XIcon } from 'react-share';
 import { base_url } from '../../App';
 import styles from './shareButtonGroup.module.css';
 import { useCopyToClipboard } from '@uidotdev/usehooks';
 import { memo, useMemo, useCallback } from 'react';
+import KakaoShareButton from './KakaoShareButton';
 
 // 언어별 텍스트 객체를 컴포넌트 외부로 이동
 const foreignTextsObject = {
@@ -42,31 +43,41 @@ function ShareButtonGroup({testParam, resultParam, renderTestInfo, lang}) {
   }, [lang]);
 
   // URL 복사 핸들러를 메모이제이션
-  const handleCopyUrl = useCallback(() => {
+  const handleCopyUrl = useCallback((e) => {
+    e.stopPropagation(); // 이벤트 버블링 방지
     copy(shareUrl);
     alert(copyAlertText);
   }, [copy, shareUrl, copyAlertText]);
+
+  const handleShareButtonClick = useCallback((e) => {
+    e.stopPropagation(); // 이벤트 버블링 방지
+  }, []);
 
   // 필요한 데이터가 없으면 렌더링하지 않음
   if (!testParam || !resultParam || !renderTestInfo) return null;
 
   return(
-    <div>
+    <div onClick={handleShareButtonClick}>
       <h3>{shareText}</h3>
-      <div className={styles.shareButtonDiv}>
-        <FacebookShareButton
-          url={shareUrl}
-          hashtag={`#${renderTestInfo?.info?.mainTitle || ''}`}
-        >
-          <FacebookIcon round={true} size={44} className={styles.socialMediaIcon}/>
-        </FacebookShareButton>
-        <TwitterShareButton
-          title={renderTestInfo?.info?.mainTitle}
-          url={shareUrl}
-          hashtags={[renderTestInfo?.info?.mainTitle]}  
-        >
-          <XIcon round={true} size={44} className={styles.socialMediaIcon}/>
-        </TwitterShareButton>
+      <div className={styles.shareButtonDiv} onClick={handleShareButtonClick}>
+        <div onClick={handleShareButtonClick}>
+          <KakaoShareButton 
+            shareUrl={shareUrl}
+            title={renderTestInfo?.info?.mainTitle}
+            description={renderTestInfo?.info?.subTitle}
+            imageUrl={renderTestInfo?.info?.mainImage}
+          />
+        </div>
+        <div onClick={handleShareButtonClick}>
+          <TwitterShareButton
+            title={renderTestInfo?.info?.mainTitle}
+            url={shareUrl}
+            hashtags={[renderTestInfo?.info?.mainTitle]}
+            onClick={handleShareButtonClick}
+          >
+            <XIcon round={true} size={44} className={styles.socialMediaIcon}/>
+          </TwitterShareButton>
+        </div>
         <button 
           className={styles.urlShareButton} 
           onClick={handleCopyUrl}

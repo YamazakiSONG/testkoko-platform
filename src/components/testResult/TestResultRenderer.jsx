@@ -4,24 +4,24 @@ import { memo, useMemo } from 'react';
 const ResultContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 0.5rem 1rem 1.5rem;
   text-align: center;
 
   @media (max-width: 768px) {
-    padding: 1.5rem 0.8rem;
+    padding: 0.5rem 0.8rem 1rem;
   }
 `;
 
 const ResultTitle = styled.h3`
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #333;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   word-break: keep-all;
   line-height: 1.4;
 
   @media (max-width: 768px) {
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
 `;
 

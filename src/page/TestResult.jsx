@@ -10,6 +10,7 @@ import BlogButton from '../components/testResult/BlogButton.jsx';
 import TestResultMetatagRenderer from '../components/metatagRenderer/TestResultMetatagRenderer.jsx';
 import styled from 'styled-components';
 import GoAnotherTestBtn from '../components/testResult/GoAnotherTestBtn.jsx';
+import HashTag from '../components/testResult/HashTag.jsx';
 
 const ResultPageContainer = styled.div`
   max-width: 800px;
@@ -84,6 +85,9 @@ function TestResult(){
                     renderResultInfo={renderResultInfo}
                     lang={lang}
                 />
+            </ContentSection>
+            <ContentSection>
+                <HashTag />
             </ContentSection>
             <ContentSection>
                 <ShareButtonGroup
