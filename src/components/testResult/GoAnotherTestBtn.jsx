@@ -1,139 +1,74 @@
 import { useNavigate } from "react-router-dom";
-import { HomeOutlined } from "@ant-design/icons";
 import { eventSenderGA } from "../../tools/tools";
-import styled, { keyframes } from 'styled-components';
 import { memo, useCallback, useMemo } from 'react';
-
-const glowAnimation = keyframes`
-  0% {
-    box-shadow: 0 0 5px rgba(255, 140, 0, 0.3),
-                0 0 10px rgba(255, 140, 0, 0.2),
-                0 0 15px rgba(255, 140, 0, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 10px rgba(255, 140, 0, 0.4),
-                0 0 20px rgba(255, 140, 0, 0.3),
-                0 0 30px rgba(255, 140, 0, 0.2);
-  }
-  100% {
-    box-shadow: 0 0 5px rgba(255, 140, 0, 0.3),
-                0 0 10px rgba(255, 140, 0, 0.2),
-                0 0 15px rgba(255, 140, 0, 0.1);
-  }
-`;
-
-const shimmerAnimation = keyframes`
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-`;
+import styled from 'styled-components';
 
 const ButtonContainer = styled.div`
-  margin: 1.5rem 0;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 600px;
+  margin: 2rem 0;
   padding: 0 1rem;
-  box-sizing: border-box;
 `;
 
-const StyledButton = styled.button`
-  background: linear-gradient(
-    45deg,
-    #FF8C00,
-    #FFA500,
-    #FF8C00,
-    #FFA500,
-    #FF8C00
-  );
-  background-size: 200% auto;
-  width: 100%;
-  max-width: 500px;
-  min-width: 14rem;
-  padding: 1rem 2rem;
-  font-size: 1.3rem;
+const StyledSkyButton = styled.button`
+  background: #00BFFF;
+  
   color: white;
   border: none;
-  border-radius: 1.2rem;
-  font-weight: bold;
+  border-radius: 50px;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
   cursor: pointer;
-  transition: all 0.4s ease;
-  animation: ${glowAnimation} 2s infinite, ${shimmerAnimation} 3s linear infinite;
   position: relative;
-  overflow: visible;
-  white-space: normal;
-  line-height: 1.4;
-  word-break: keep-all;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  height: 4.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.8) 0%,
-      transparent 60%
-    );
-    transform: rotate(45deg);
-    transition: all 0.3s ease;
-    opacity: 0;
-  }
-
+  overflow: hidden;
+  min-width: 200px;
+  height: 60px;
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 25px rgba(135, 206, 235, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  
   &:hover {
     transform: translateY(-3px) scale(1.02);
-    background-position: right center;
-    box-shadow: 0 7px 20px rgba(255, 140, 0, 0.4);
-
-    &::before {
-      opacity: 0.6;
-      transform: rotate(45deg) translate(50%, 50%);
-    }
+    box-shadow: 
+      0 15px 35px rgba(135, 206, 235, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
-
+  
   &:active {
-    transform: translateY(1px) scale(0.98);
-    box-shadow: 0 3px 10px rgba(255, 140, 0, 0.3);
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 
+      0 5px 15px rgba(135, 206, 235, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
-
+  
+  &:focus {
+    outline: none;
+    box-shadow: 
+      0 8px 25px rgba(135, 206, 235, 0.3),
+      0 0 0 3px rgba(135, 206, 235, 0.3);
+  }
+  
   @media (max-width: 768px) {
-    min-width: auto;
-    width: auto;
-    max-width: none;
-    font-size: 1.1rem;
-    padding: 0.8rem 1.5rem;
-    margin: 0 1rem;
-    height: 4rem;
-    background: linear-gradient(
-      45deg,
-      #FF8C00,
-      #FFA500,
-      #FF8C00
-    );
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    min-width: 180px;
+    height: 55px;
   }
-
-  .home-icon {
-    margin-right: 8px;
-    font-size: 1.2em;
-    vertical-align: middle;
-  }
-
-  span {
-    vertical-align: middle;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 0.9rem 1.8rem;
+    min-width: 160px;
+    height: 50px;
   }
 `;
 
@@ -143,7 +78,7 @@ const foreignTextsObject = {
     goHome : "다른 테스트 하러 가기",
   },
   Eng : {
-    goHome : "Go to other Tests",
+    goHome : "Go to Other Tests",
   },
   Jp : {
     goHome : "他のテストをしに行く",
@@ -161,17 +96,17 @@ function GoAnotherTestBtn({lang}) {
   }, [lang]);
 
   // 이벤트 핸들러 메모이제이션
-  const onClickGoHomeButton = useCallback(() => {
+  const onClickGoHomeButton = useCallback((e) => {
+    e.stopPropagation(); // 이벤트 버블링 방지
     eventSenderGA("Paging","Go-Home Button","Result");
     navigate("/");
   }, [navigate]);
 
   return(
     <ButtonContainer>
-      <StyledButton onClick={onClickGoHomeButton}>
-        <HomeOutlined className="home-icon" />
-        <span>{buttonText}</span>
-      </StyledButton>
+      <StyledSkyButton onClick={onClickGoHomeButton}>
+        {buttonText}
+      </StyledSkyButton>
     </ButtonContainer>
   );
 }

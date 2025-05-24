@@ -25,7 +25,7 @@ function KakaoShareButton({ shareUrl, title, description, imageUrl }) {
     // 카카오 SDK 스크립트 로드
     const script = document.createElement('script');
     script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.5/kakao.min.js";
-    script.integrity = "sha384-dok87au0gKqJdxs7msEdBPNNKSRT+/mhTVzq+qOhcL464zXwvcrpjeWvyj1kCdq6";
+    script.integrity = "123b7fcc70c9c2d2dcc4bb592f02471d";
     script.crossOrigin = "anonymous";
     script.async = true;
 

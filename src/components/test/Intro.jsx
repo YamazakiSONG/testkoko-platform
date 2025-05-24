@@ -1,5 +1,4 @@
 import IntroButtonGroup from './IntroButtonGroup';
-import KakaoAdfit from '../KakaoAdfit';
 import GoToHomeButton from './GoToHomeButton';
 import { eventSenderGA } from "../../tools/tools"
 import styled, { keyframes } from 'styled-components';

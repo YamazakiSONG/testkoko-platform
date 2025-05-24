@@ -1,130 +1,106 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { memo, useMemo } from 'react';
 
-const glowAnimation = keyframes`
-  0% {
-    box-shadow: 0 0 5px rgba(255, 64, 129, 0.3),
-                0 0 10px rgba(255, 64, 129, 0.2),
-                0 0 15px rgba(255, 64, 129, 0.1);
+// 빛나면서 크기가 변하는 애니메이션
+const glowPulse = keyframes`
+  0% { 
+    transform: scale(1);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
-  50% {
-    box-shadow: 0 0 10px rgba(255, 64, 129, 0.4),
-                0 0 20px rgba(255, 64, 129, 0.3),
-                0 0 30px rgba(255, 64, 129, 0.2);
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6),
+                0 0 20px rgba(255, 105, 180, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
-  100% {
-    box-shadow: 0 0 5px rgba(255, 64, 129, 0.3),
-                0 0 10px rgba(255, 64, 129, 0.2),
-                0 0 15px rgba(255, 64, 129, 0.1);
-  }
-`;
-
-const shimmerAnimation = keyframes`
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
+  100% { 
+    transform: scale(1);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
 `;
 
 const ButtonContainer = styled.div`
-  margin: 1.5rem 0;
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 600px;
+  align-items: center;
+  margin: 2rem 0;
   padding: 0 1rem;
-  box-sizing: border-box;
 `;
 
 const StyledButton = styled.button`
-  background: linear-gradient(
-    45deg,
-    #ff4081,
-    #ff79b0,
-    #ff4081,
-    #ff79b0,
-    #ff4081
-  );
-  background-size: 200% auto;
-  width: 100%;
-  max-width: 500px;
-  min-width: 14rem;
-  padding: 1rem 2rem;
-  font-size: 1.3rem;
+  background: #ff69b4;
+  
   color: white;
   border: none;
-  border-radius: 1.2rem;
-  font-weight: bold;
+  border-radius: 50px;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Arial', sans-serif;
   cursor: pointer;
-  transition: all 0.4s ease;
-  animation: ${glowAnimation} 2s infinite, ${shimmerAnimation} 3s linear infinite;
   position: relative;
-  overflow: visible;
-  white-space: normal;
-  line-height: 1.4;
-  word-break: keep-all;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  height: 4.5rem;
-  display: inline-flex;
+  overflow: hidden;
+  min-width: 200px;
+  height: 60px;
+  
+  /* 텍스트 완벽 중앙 정렬 */
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  text-decoration: none;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.8) 0%,
-      transparent 60%
-    );
-    transform: rotate(45deg);
-    transition: all 0.3s ease;
-    opacity: 0;
-  }
-
+  text-align: center;
+  line-height: 1;
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 25px rgba(255, 105, 180, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  
+  animation: ${glowPulse} 2s ease-in-out infinite;
+  
   &:hover {
     transform: translateY(-3px) scale(1.02);
-    background-position: right center;
-    box-shadow: 0 7px 20px rgba(255, 64, 129, 0.4);
-
-    &::before {
-      opacity: 0.6;
-      transform: rotate(45deg) translate(50%, 50%);
-    }
+    box-shadow: 
+      0 15px 35px rgba(255, 105, 180, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    
+    animation: ${glowPulse} 1s ease-in-out infinite;
   }
-
+  
   &:active {
-    transform: translateY(1px) scale(0.98);
-    box-shadow: 0 3px 10px rgba(255, 64, 129, 0.3);
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 
+      0 5px 15px rgba(255, 105, 180, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    
+    animation: none;
   }
-
+  
+  &:focus {
+    outline: none;
+    box-shadow: 
+      0 8px 25px rgba(255, 105, 180, 0.3),
+      0 0 0 3px rgba(255, 105, 180, 0.3);
+  }
+  
   @media (max-width: 768px) {
-    min-width: auto;
-    width: auto;
-    max-width: none;
-    font-size: 1.1rem;
-    padding: 0.8rem 1.5rem;
-    margin: 0 1rem;
-    height: 4rem;
-    background: linear-gradient(
-      45deg,
-      #ff4081,
-      #ff79b0,
-      #ff4081
-    );
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    min-width: 180px;
+    height: 55px;
   }
-
-  span {
-    vertical-align: middle;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 0.9rem 1.8rem;
+    min-width: 160px;
+    height: 50px;
   }
 `;
 
@@ -134,15 +110,17 @@ const foreignTextsObject = {
     btnText: "더 자세한 결과 보러가기",
   },
   Eng: {
-    btnText: "More detailed results",
+    btnText: "See More Details",
   },
   Jp: {
-    btnText: "もっと詳しい結果を見に行こう！",
+    btnText: "もっと詳しい結果を見る",
   }
 };
 
 // 메인 컴포넌트 함수
 function BlogButtonComponent({testParam, resultParam, lang}) {
+  const navigate = useNavigate();
+  
   // 필요한 데이터가 없으면 렌더링하지 않음
   if (!lang || !testParam || !resultParam) return null;
 
@@ -152,21 +130,15 @@ function BlogButtonComponent({testParam, resultParam, lang}) {
   }, [lang]);
 
   const handleClick = (e) => {
-    // 이벤트 버블링 방지
-    e.stopPropagation();
+    e.stopPropagation(); // 이벤트 버블링 방지
+    navigate(`/blog/${testParam}/${resultParam}`);
   };
 
   return (
-    <ButtonContainer onClick={handleClick}>
-      <Link 
-        to={`/blog/${testParam}/${resultParam}`}
-        style={{ textDecoration: 'none', display: 'block', width: '100%', maxWidth: '500px' }}
-        onClick={handleClick}
-      >
-        <StyledButton>
-          {buttonText}
-        </StyledButton>
-      </Link>
+    <ButtonContainer>
+      <StyledButton onClick={handleClick}>
+        {buttonText}
+      </StyledButton>
     </ButtonContainer>
   );
 }

@@ -101,23 +101,6 @@ const EndTextButton = styled.button`
     transform: translateY(-2px);
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: rotate(45deg);
-    transition: all 0.3s ease;
-    pointer-events: none;
-  }
-
-  &:hover::before {
-    transform: rotate(45deg) translate(50%, 50%);
-  }
-
   @media (max-width: 768px) {
     font-size: 1.2rem;
     padding: 1.2rem 1.5rem;
