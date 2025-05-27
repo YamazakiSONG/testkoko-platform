@@ -4,6 +4,7 @@ import { eventSenderGA } from '../../tools/tools';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import GoToHomeButton from '../test/GoToHomeButton';
+import ResultThumbnailList from '../testResult/ResultThumbnailList';
 import { memo, useCallback } from 'react';
 
 const BlogContainer = styled.div`
@@ -146,6 +147,13 @@ function BlogRenderer({content}) {
 
   if (!content) return null;
 
+  // 디버깅을 위한 콘솔 로그
+  console.log('Blog content:', {
+    testUrl: content.testUrl,
+    lang: content.lang,
+    content: content
+  });
+
   return (
     <BlogContainer>
       <BlogTitle>{content.title}</BlogTitle>
@@ -158,13 +166,12 @@ function BlogRenderer({content}) {
           {content.endText}
         </EndTextButton>
       </Link>
-      <Link to={`/${content.testUrl}`} onClick={onTestThumbnailClick}>
-        <BlogImage
-          src={content.testImg}
-          alt={content.testUrl}
-        />
-      </Link>
       
+      <ResultThumbnailList
+        testParam={content.testUrl}
+        lang={content.lang}
+        onClick={onTestThumbnailClick}
+      />
       <GoToHomeButton page="Blog"/>
     </BlogContainer>
   )

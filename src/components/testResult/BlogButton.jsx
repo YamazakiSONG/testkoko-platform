@@ -2,23 +2,45 @@ import { useNavigate } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { memo, useMemo } from 'react';
 
-// 빛나면서 크기가 변하는 애니메이션
-const glowPulse = keyframes`
-  0% { 
-    transform: scale(1);
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+const glowAnimation = keyframes`
+  0% {
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.5),
+                0 0 20px rgba(255, 64, 129, 0.3),
+                0 0 30px rgba(255, 64, 129, 0.2),
+                0 0 40px rgba(255, 64, 129, 0.1);
   }
-  50% { 
-    transform: scale(1.05);
-    box-shadow: 0 12px 35px rgba(255, 105, 180, 0.6),
-                0 0 20px rgba(255, 105, 180, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  50% {
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.8),
+                0 0 40px rgba(255, 64, 129, 0.6),
+                0 0 60px rgba(255, 64, 129, 0.4),
+                0 0 80px rgba(255, 64, 129, 0.2);
   }
-  100% { 
+  100% {
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.5),
+                0 0 20px rgba(255, 64, 129, 0.3),
+                0 0 30px rgba(255, 64, 129, 0.2),
+                0 0 40px rgba(255, 64, 129, 0.1);
+  }
+`;
+
+const pulseAnimation = keyframes`
+  0% {
     transform: scale(1);
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
+const shimmerAnimation = keyframes`
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
   }
 `;
 
@@ -28,79 +50,109 @@ const ButtonContainer = styled.div`
   align-items: center;
   margin: 2rem 0;
   padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 const StyledButton = styled.button`
-  background: #ff69b4;
-  
+  background: linear-gradient(
+    45deg,
+    #ff4081,
+    #ff79b0,
+    #ff4081,
+    #ff79b0,
+    #ff4081
+  );
+  background-size: 200% auto;
+  min-width: 10rem;
+  width: auto;
+  max-width: 70%;
+  padding: 1rem 1.5rem;
+  height: auto;
+  min-height: 4rem;
+  font-size: 1.3rem;
   color: white;
   border: none;
-  border-radius: 50px;
-  padding: 1.2rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  font-family: 'Arial', sans-serif;
+  border-radius: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 0.4s ease;
+  animation: ${glowAnimation} 2s infinite, ${shimmerAnimation} 3s linear infinite, ${pulseAnimation} 2s ease-in-out infinite;
   position: relative;
   overflow: hidden;
-  min-width: 200px;
-  height: 60px;
+  white-space: normal;
+  line-height: 1.4;
+  word-break: keep-all;
+  word-wrap: break-word;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem 0;
   
-  /* 텍스트 완벽 중앙 정렬 */
+  /* 텍스트 중앙 정렬을 위한 Flexbox 설정 */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  line-height: 1;
-  
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 8px 25px rgba(255, 105, 180, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  letter-spacing: 0.5px;
-  
-  animation: ${glowPulse} 2s ease-in-out infinite;
-  
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.8) 0%,
+      transparent 60%
+    );
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
   &:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 
-      0 15px 35px rgba(255, 105, 180, 0.4),
-      0 0 0 1px rgba(255, 255, 255, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    
-    animation: ${glowPulse} 1s ease-in-out infinite;
+    transform: translateY(-3px) scale(1.03);
+    background-position: right center;
+    box-shadow: 0 10px 30px rgba(255, 64, 129, 0.6);
+
+    &::before {
+      opacity: 0.8;
+      transform: rotate(45deg) translate(50%, 50%);
+    }
   }
-  
+
   &:active {
-    transform: translateY(-1px) scale(0.98);
-    box-shadow: 
-      0 5px 15px rgba(255, 105, 180, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    
-    animation: none;
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 3px 10px rgba(255, 64, 129, 0.3);
   }
-  
-  &:focus {
-    outline: none;
-    box-shadow: 
-      0 8px 25px rgba(255, 105, 180, 0.3),
-      0 0 0 3px rgba(255, 105, 180, 0.3);
-  }
-  
+
+  /* 태블릿 크기 */
   @media (max-width: 768px) {
-    font-size: 1rem;
-    padding: 1rem 2rem;
-    min-width: 180px;
-    height: 55px;
+    min-width: auto;
+    width: 75%;
+    max-width: 16rem;
+    min-height: 3.5rem;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.2rem;
+    margin: 1.2rem 0;
+    background: linear-gradient(
+      45deg,
+      #ff4081,
+      #ff79b0,
+      #ff4081
+    );
   }
-  
+
+  /* 모바일 크기 */
   @media (max-width: 480px) {
-    font-size: 0.9rem;
-    padding: 0.9rem 1.8rem;
-    min-width: 160px;
-    height: 50px;
+    width: 80%;
+    max-width: 14rem;
+    min-height: 3.2rem;
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    margin: 1rem 0;
+    border-radius: 1rem;
   }
 `;
 

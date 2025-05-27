@@ -177,16 +177,6 @@ const StartButton = styled.button`
     opacity: 0;
   }
 
-  &:hover {
-    transform: translateY(-3px) scale(1.03);
-    background-position: right center;
-    box-shadow: 0 10px 30px rgba(255, 64, 129, 0.6);
-
-    &::before {
-      opacity: 0.8;
-      transform: rotate(45deg) translate(50%, 50%);
-    }
-  }
 
   &:active {
     transform: translateY(1px) scale(0.98);

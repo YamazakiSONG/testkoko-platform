@@ -28,7 +28,7 @@ function ResultThumbnailList({ testParam, lang }) {
     margin: "1rem 0"
   }), []);
 
-  // 결과가 없는 경우의 메시지를 언어별로 메모이제이션 (조건부 렌더링 이전으로 이동)
+  // 결과가 없는 경우의 메시지를 언어별로 메모이제이션
   const noResultsMessage = useMemo(() => {
     const messages = {
       'Kor': '해당 언어의 다른 테스트가 없습니다.',
@@ -46,15 +46,34 @@ function ResultThumbnailList({ testParam, lang }) {
   useEffect(() => {
     setIsLoading(true);
     
+    // 디버깅을 위한 콘솔 로그
+    console.log('ResultThumbnailList params:', {
+      currentLanguage,
+      currentTestParam,
+      allTests: TESTS
+    });
+    
     if (!currentLanguage || !currentTestParam) {
+      console.log('Missing required params');
       setIsLoading(false);
       return;
     }
     
     const filteredTests = TESTS.filter((test) => {
-      return test?.info?.mainUrl !== currentTestParam && 
-             test?.info?.lang === currentLanguage;
+      const isMatch = test?.info?.mainUrl !== currentTestParam && 
+                     test?.info?.lang === currentLanguage;
+      
+      // 디버깅을 위한 콘솔 로그
+      console.log('Test filtering:', {
+        testUrl: test?.info?.mainUrl,
+        testLang: test?.info?.lang,
+        isMatch
+      });
+      
+      return isMatch;
     });
+    
+    console.log('Filtered tests:', filteredTests);
     
     setTestList(filteredTests);
     setIsLoading(false);
@@ -102,5 +121,5 @@ function ResultThumbnailList({ testParam, lang }) {
   );
 }
 
-// memo로 컴포넌트 래핑: React 19에서 권장되는 방식
+// memo로 컴포넌트 래핑
 export default memo(ResultThumbnailList);
