@@ -52,22 +52,34 @@ const HeaderContainer = styled.header`
 `;
 
 const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.8rem;
   font-weight: 800;
-  background: linear-gradient(
-    45deg,
-    #87CEEB,  /* 하늘색 */
-    #00BFFF,  /* 딥스카이블루 */
-    #1E90FF,  /* 도저블루 */
-    #4169E1   /* 로얄블루 */
-  );
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: ${gradientAnimation} 5s ease infinite;
   cursor: pointer;
-  letter-spacing: 2px;
+  
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  span {
+    background: linear-gradient(
+      45deg,
+      #87CEEB,
+      #00BFFF,
+      #1E90FF,
+      #4169E1
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: ${gradientAnimation} 5s ease infinite;
+    letter-spacing: 2px;
+  }
   
   &:hover {
     transform: scale(1.05);
@@ -76,6 +88,11 @@ const Logo = styled.div`
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
+    
+    img {
+      width: 32px;
+      height: 32px;
+    }
   }
 `;
 
@@ -108,7 +125,10 @@ export default function Header() {
 
   return (
     <HeaderContainer isScrolled={isScrolled}>
-      <Logo>TESTKOKO</Logo>
+      <Logo>
+        <img src="/testkoko.png" alt="TestKoko Logo" />
+        <span>TESTKOKO</span>
+      </Logo>
     </HeaderContainer>
   );
 } 

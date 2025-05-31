@@ -859,8 +859,8 @@ export const TESTS = [
   // areYouT
   {
     info: {
-      mainTitle: "너 T야?",
-      subTitle: "T성향 측정기 - 나의 T성향은 어느정도일까?",
+      mainTitle: "T발놈 테스트 - 너 T야?",
+      subTitle: "T성향 측정기 - 나는 T발놈일까?",
       mainUrl: "areYouT",
       testType: "T_PERSONALITY",
       mainImage: "https://images.testkoko.com/T_areYouT/introThumb/areYouT_intro_thumb_ko.avif",

@@ -282,7 +282,7 @@ and find out which **Attack on Titan character shares your MBTI.**
 
 ---
 
-## 💬 대표 병맛 명대사:
+## 💬 자주 하는 말
 
 - "너 지금 감정 투자 너무 비효율적인 거 알아?"  
 - "네가 우는 이유의 원인을 도표로 정리했어. 볼래?"  
@@ -296,12 +296,6 @@ and find out which **Attack on Titan character shares your MBTI.**
 - 주변 친구의 감정 민감도 높을 시 우정 종료 가능성 있음  
 - 지나친 분석 시 친구가 중도 퇴장할 가능성 있음  
 - 공감하려다 스스로 혼란스러워질 위험 있음 ("공감이...뭐였지?")
-
----
-
-## 🎯 최종 병맛 결론:
-
-**『친구의 눈물은 감정의 신호가 아니라, 당신에게는 분석 신호다.』**
 
 `
 },
@@ -375,7 +369,7 @@ and find out which **Attack on Titan character shares your MBTI.**
 
 ---
 
-## 💬 대표 대사
+## 💬 자주 하는 말
   
 - "**네가 우는 이유를 구조적으로 분석했는데, 역시 논리 오류네.**"  
 - "**그거 감정이 아니라 분석 대상이야.**"  
@@ -469,13 +463,6 @@ and find out which **Attack on Titan character shares your MBTI.**
 - 감정 대화 중 무표정 + 수치 제시로 사회적 냉장고 취급  
 - 연애는 숫자 놀음, 위로는 PDF 보고서,  
  공감은 **"용량 초과된 휴지통 파일"**
-
----
-
-## 🎯 최종 병맛 결론
-
-**『위로라는 개념은 자체가 없으며,  
-모든 관계는 실리를 중심으로 존재한다.』**
 
 ---
 
