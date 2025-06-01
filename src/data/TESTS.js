@@ -268,7 +268,7 @@ export const TESTS = [
         type: "INTP",
         query: "1qi2wn3et4rp",
         img_src:
-          "https://images.testkoko.com/result/attack_of_titan_mbti/sasha_isfp_ko.avif",
+          "https://images.testkoko.com/result/attack_of_titan_mbti/shasha_isfp_ko.avif",
       },
       {
         type: "INFJ",
@@ -554,7 +554,7 @@ export const TESTS = [
         type: "INTP",
         query: "1qi2wn3et4rp",
         img_src:
-          "https://images.testkoko.com/result/attack_of_titan_mbti/sasha_isfp_eng.avif",
+          "https://images.testkoko.com/result/attack_of_titan_mbti/shasha_isfp_eng.avif",
       },
       {
         type: "INFJ",
@@ -840,7 +840,7 @@ export const TESTS = [
         type: "INTP",
         query: "1qi2wn3et4rp",
         img_src:
-          "https://images.testkoko.com/result/attack_of_titan_mbti/sasha_isfp_jp.avif",
+          "https://images.testkoko.com/result/attack_of_titan_mbti/shasha_isfp_jp.avif",
       },
       {
         type: "INFJ",
@@ -1048,7 +1048,7 @@ export const TESTS = [
         type: "T1", // 1단계
         query: "qsdcred",
         hashTag : [
-          '인간미','좋은친구'
+          'T력 Lv1','인간미','좋은친구'
         ],
         img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv1_ko.avif",
       },
@@ -1056,7 +1056,7 @@ export const TESTS = [
         type: "T2", // 2단계
         query: "asdascr",
         hashTag : [
-          '정없음','그저그럼'
+          'T력 Lv2','정없음','그저그럼'
         ],
         img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv2_ko.avif",
       },
@@ -1064,7 +1064,7 @@ export const TESTS = [
         type: "T3", // 3단계
         query: "ascxrcd",
         hashTag : [
-          '싸가지 없음','손절각'
+          'T력 Lv3','싸가지 없음','손절각'
         ],
         img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv3_ko.avif",
       },
@@ -1072,7 +1072,7 @@ export const TESTS = [
         type: "T4", //4단계
         query: "ascxdda",
         hashTag : [
-          'T발놈'
+          'T력 Lv4 만랩','T발놈'
         ],
         img_src: "https://images.testkoko.com/T_areYouT/result/t_result_lv4_ko.avif",
       }
@@ -1712,18 +1712,27 @@ export const TESTS = [
         query: "cjdbfgk",
         img_src:
           "https://images.testkoko.com/T_oldMan/result/oldman_result_lv1_ko.avif",
+        hashTag : [
+           '꼰대 Lv1','현실에 이런 상사 없음','상상의 동물 유니콘'
+        ],
       },
       {
         type: "O2", // 2단계
         query: "vndsjfo",
         img_src:
           "https://images.testkoko.com/T_oldMan/result/oldman_result_lv2_ko.avif",
+        hashTag : [
+          '꼰대 Lv2','적당한 꼰대','회사에 필요한 존재'
+        ],
       },
       {
         type: "O3", // 3단계
         query: "mndsfkn",
         img_src:
           "https://images.testkoko.com/T_oldMan/result/oldman_result_lv3_ko.avif",
+        hashTag : [
+          '꼰대 Lv3 만랩','개꼰대','회사 빌런'
+        ],
       },
     ],
   }

@@ -1,23 +1,72 @@
 .buttonContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  margin: 2rem auto;
+  gap: 1rem;
   width: 100%;
-  max-width: 600px;
-  padding: 0 1rem;
-  box-sizing: border-box;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 .upperButtonGroup {
   display: flex;
-  justify-content: center;
   gap: 1rem;
   width: 100%;
 }
 
-.upperButton,
+.upperButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  border: 3px solid #4682B4;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+  color: #1E90FF;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 6px rgba(70, 130, 180, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 2px 3px rgba(255, 255, 255, 0.9);
+  position: relative;
+  top: 0;
+}
+
+.upperButton:hover {
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  border-color: #1E90FF;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 12px rgba(30, 144, 255, 0.25),
+    0 3px 6px rgba(0, 0, 0, 0.15),
+    inset 0 2px 3px rgba(255, 255, 255, 0.9);
+}
+
+.upperButton:active {
+  transform: translateY(1px);
+  background: linear-gradient(to bottom, #e9ecef, #dee2e6);
+  box-shadow: 
+    0 2px 4px rgba(30, 144, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 2px 3px rgba(255, 255, 255, 0.7);
+}
+
+.upperButton span {
+  font-size: 0.95rem;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.upperButton svg {
+  font-size: 1.2rem;
+  color: #4682B4;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.8));
+}
+
 .bottomButton {
   height: 4.5rem;
   cursor: pointer;
@@ -37,48 +86,6 @@
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-}
-
-.upperButton {
-  flex: 1;
-  max-width: 250px;
-  background: #00BFFF;
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 191, 255, 0.2),
-    0 2px 4px -1px rgba(0, 191, 255, 0.1);
-}
-
-@keyframes glow {
-  0% {
-    box-shadow: 
-      0 0 5px rgba(72, 202, 228, 0.3),
-      0 0 10px rgba(72, 202, 228, 0.2),
-      0 0 15px rgba(72, 202, 228, 0.1);
-  }
-  50% {
-    box-shadow: 
-      0 0 10px rgba(72, 202, 228, 0.4),
-      0 0 20px rgba(72, 202, 228, 0.3),
-      0 0 30px rgba(72, 202, 228, 0.2);
-  }
-  100% {
-    box-shadow: 
-      0 0 5px rgba(72, 202, 228, 0.3),
-      0 0 10px rgba(72, 202, 228, 0.2),
-      0 0 15px rgba(72, 202, 228, 0.1);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.bottomButton {
   width: 100%;
   max-width: 500px;
   min-width: 14rem;
@@ -114,14 +121,6 @@
   opacity: 0;
 }
 
-.upperButton:hover {
-  transform: translateY(-2px);
-  background: #33CCFF;
-  box-shadow: 
-    0 6px 12px -2px rgba(0, 191, 255, 0.25),
-    0 3px 7px -3px rgba(0, 191, 255, 0.15);
-}
-
 .bottomButton:hover {
   transform: translateY(-3px) scale(1.02);
   background: #90E0EF;
@@ -133,14 +132,6 @@
   transform: rotate(45deg) translate(50%, 50%);
 }
 
-.upperButton:active {
-  transform: translateY(1px);
-  background: #00A6DD;
-  box-shadow: 
-    0 2px 4px -1px rgba(0, 191, 255, 0.15),
-    0 1px 2px -1px rgba(0, 191, 255, 0.1);
-}
-
 .bottomButton:active {
   transform: translateY(1px) scale(0.98);
   background: #00B4D8;
@@ -148,7 +139,6 @@
 }
 
 /* 아이콘 스타일 */
-.upperButton svg,
 .bottomButton svg {
   font-size: 1.3rem;
   display: block;
@@ -165,7 +155,6 @@
 }
 
 /* 텍스트 스타일 */
-.upperButton span,
 .bottomButton span {
   display: inline-block;
   vertical-align: middle;
@@ -174,19 +163,25 @@
 
 @media (max-width: 768px) {
   .buttonContainer {
-    padding: 0 20px;
-    margin: 1.5rem auto;
+    padding: 0.8rem;
   }
 
   .upperButtonGroup {
     gap: 0.8rem;
   }
 
-  .upperButton,
-  .bottomButton {
-    height: 4rem;
-    font-size: 1rem;
-    padding: 0 1.5rem;
+  .upperButton {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    border-width: 2px;
+  }
+
+  .upperButton span {
+    font-size: 0.85rem;
+  }
+
+  .upperButton svg {
+    font-size: 1.1rem;
   }
 
   .bottomButton {
@@ -198,7 +193,6 @@
     margin: 0 1rem;
   }
 
-  .upperButton svg,
   .bottomButton svg {
     font-size: 1.1rem;
   }

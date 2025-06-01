@@ -12,63 +12,47 @@ const ButtonContainer = styled.div`
 `;
 
 const StyledSkyButton = styled.button`
-  background: #00BFFF;
-  
+  background: linear-gradient(to right, #48CAE4, #00B4D8);
   color: white;
   border: none;
-  border-radius: 50px;
-  padding: 1.2rem 2.5rem;
+  border-radius: 16px;
+  padding: 0 2.5rem;
   font-size: 1.1rem;
   font-weight: 700;
   font-family: 'Arial', sans-serif;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  min-width: 200px;
+  min-width: 220px;
   height: 60px;
-  
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 
-    0 8px 25px rgba(135, 206, 235, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 
-      0 15px 35px rgba(135, 206, 235, 0.4),
-      0 0 0 1px rgba(255, 255, 255, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    background: linear-gradient(to right, #90E0EF, #48CAE4);
   }
   
   &:active {
-    transform: translateY(-1px) scale(0.98);
-    box-shadow: 
-      0 5px 15px rgba(135, 206, 235, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to right, #0096C7, #00B4D8);
   }
   
   &:focus {
     outline: none;
-    box-shadow: 
-      0 8px 25px rgba(135, 206, 235, 0.3),
-      0 0 0 3px rgba(135, 206, 235, 0.3);
   }
   
   @media (max-width: 768px) {
     font-size: 1rem;
-    padding: 1rem 2rem;
-    min-width: 180px;
+    padding: 0 2rem;
+    min-width: 200px;
     height: 55px;
+    border-radius: 14px;
   }
   
   @media (max-width: 480px) {
     font-size: 0.9rem;
-    padding: 0.9rem 1.8rem;
-    min-width: 160px;
+    padding: 0 1.8rem;
+    min-width: 180px;
     height: 50px;
+    border-radius: 12px;
   }
 `;
 

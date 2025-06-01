@@ -147,13 +147,6 @@ function BlogRenderer({content}) {
 
   if (!content) return null;
 
-  // 디버깅을 위한 콘솔 로그
-  console.log('Blog content:', {
-    testUrl: content.testUrl,
-    lang: content.lang,
-    content: content
-  });
-
   return (
     <BlogContainer>
       <BlogTitle>{content.title}</BlogTitle>

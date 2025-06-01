@@ -23,7 +23,6 @@ function Loading({scores, currentTest}) {
       const resultQuery = calculator.calculate(scores, currentTest);
       setFinalQuery(resultQuery);
     } catch (error) {
-      console.error('Error calculating test result:', error);
       navigate('/');
     }
   }, [scores, currentTest, navigate]);

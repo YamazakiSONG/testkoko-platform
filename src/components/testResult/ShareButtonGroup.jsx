@@ -60,14 +60,14 @@ function ShareButtonGroup({testParam, resultParam, renderTestInfo, lang}) {
     <div onClick={handleShareButtonClick}>
       <h3>{shareText}</h3>
       <div className={styles.shareButtonDiv} onClick={handleShareButtonClick}>
-        <div onClick={handleShareButtonClick}>
+        {/* <div onClick={handleShareButtonClick}>
           <KakaoShareButton 
             shareUrl={shareUrl}
             title={renderTestInfo?.info?.mainTitle}
             description={renderTestInfo?.info?.subTitle}
             imageUrl={renderTestInfo?.info?.mainImage}
           />
-        </div>
+        </div>*/}
         <div onClick={handleShareButtonClick}>
           <TwitterShareButton
             title={renderTestInfo?.info?.mainTitle}

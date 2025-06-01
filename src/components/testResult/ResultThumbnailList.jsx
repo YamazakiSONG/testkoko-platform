@@ -46,15 +46,7 @@ function ResultThumbnailList({ testParam, lang }) {
   useEffect(() => {
     setIsLoading(true);
     
-    // 디버깅을 위한 콘솔 로그
-    console.log('ResultThumbnailList params:', {
-      currentLanguage,
-      currentTestParam,
-      allTests: TESTS
-    });
-    
     if (!currentLanguage || !currentTestParam) {
-      console.log('Missing required params');
       setIsLoading(false);
       return;
     }
@@ -63,17 +55,8 @@ function ResultThumbnailList({ testParam, lang }) {
       const isMatch = test?.info?.mainUrl !== currentTestParam && 
                      test?.info?.lang === currentLanguage;
       
-      // 디버깅을 위한 콘솔 로그
-      console.log('Test filtering:', {
-        testUrl: test?.info?.mainUrl,
-        testLang: test?.info?.lang,
-        isMatch
-      });
-      
       return isMatch;
     });
-    
-    console.log('Filtered tests:', filteredTests);
     
     setTestList(filteredTests);
     setIsLoading(false);

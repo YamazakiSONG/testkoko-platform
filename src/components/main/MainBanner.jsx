@@ -129,6 +129,22 @@ const Subtitle = styled.p`
   }
 `;
 
+const LogoImage = styled.img`
+  display: block;
+  margin: 1.5rem auto;
+  width: 200px;
+  height: auto;
+
+  @media (max-width: 768px) {
+    width: 150px;
+    margin: 1rem auto;
+  }
+
+  @media (max-width: 480px) {
+    width: 120px;
+  }
+`;
+
 const Description = styled.div`
   display: flex;
   flex-direction: column;
@@ -213,7 +229,6 @@ function MainBanner() {
       subtitle: "나의 또 다른 모습을 찾는 심리테스트",
       description1: "✨ MBTI, 연애, 성격 테스트",
       description2: "🌟 아이돌, 애니메이션 세계관 테스트",
-      description3: "💫 테스트코코를 통해 당신의 숨겨진 매력을 발견하세요",
       advertising: "광고 및 후원 문의",
       email: "testkoko88@gmail.com",
     },
@@ -222,7 +237,6 @@ function MainBanner() {
       subtitle: "Find your other self with psychological tests",
       description1: "✨ MBTI, Love, Personality Test",
       description2: "🌟 Idol, Animation World Test",
-      description3: "💫 Discover your hidden charm through TESTKOKO",
       advertising: "Advertising and Sponsorshop Contact",
       email: "testkoko88@gmail.com",
     },
@@ -231,7 +245,6 @@ function MainBanner() {
       subtitle: "心理テストで自分の他の姿を見つける",
       description1: "✨ MBTI, 恋愛, 性格テスト",
       description2: "🌟 アイドル, アニメショーの世界テスト",
-      description3: "💫 テストココであなたの隠れた魅力を発見してください",
       advertising: "広告およびスポンサーシップのお問い合わせ",
       email: "testkoko88@gmail.com",
     },
@@ -241,10 +254,10 @@ function MainBanner() {
     <BannerContainer>
       <Title>{foreignTextsObject[language]?.title}</Title>
       <Subtitle>{foreignTextsObject[language]?.subtitle}</Subtitle>
+      <LogoImage src="/testkoko.png" alt="TestKoko Logo" />
       <Description>
         <p>{foreignTextsObject[language]?.description1}</p>
         <p>{foreignTextsObject[language]?.description2}</p>
-        <p>{foreignTextsObject[language]?.description3}</p>
       </Description>
       <ContactInfo>
         <p>{foreignTextsObject[language]?.advertising}</p>
